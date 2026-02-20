@@ -30,10 +30,6 @@ class Score:
             return "—"
         return f"{self.pct * 100:.0f}% ({self.correct}/{self.total})"
 
-    def display_md(self) -> str:
-        if self.total == 0:
-            return "—"
-        return f"{self.pct * 100:.0f}% ({self.correct}/{self.total})"
 
 
 def _score(results: list, predicate=None) -> Score:
@@ -178,7 +174,7 @@ def print_report(run: RunResults) -> None:
             en = s[(cat_key, "en")]
             ru = s[(cat_key, "ru")]
             md.append(
-                f"| {model} | {en.display_md()} | {ru.display_md()} | {_delta_str(en, ru)} |"
+                f"| {model} | {en.display()} | {ru.display()} | {_delta_str(en, ru)} |"
             )
         md.append("")
 
