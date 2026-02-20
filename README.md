@@ -17,6 +17,8 @@ DeepSeek R1         86%       83%       −3%
 
 ## Quickstart
 
+Requires **Python 3.11+**.
+
 ```bash
 cp .env.example .env          # add your OpenRouter API key
 pip install -e .
@@ -61,6 +63,16 @@ Each run produces:
 
 - **`results/<run-id>.json`** — raw evaluation data
 - **`reports/<run-id>.md`** — markdown tables per category + overall, plus a list of specific questions where EN passed but RU failed
+
+## Development
+
+```bash
+pip install -e ".[dev]"
+pytest                  # fast tests only
+pytest -m slow          # include 10s timeout tests
+ruff check src tests
+mypy src
+```
 
 ## License
 
