@@ -11,7 +11,7 @@ def extract_code(response: str, function_name: str) -> str | None:
     2. If no fenced block, look for `def function_name` in raw text.
     """
     # Collect all ```python blocks
-    blocks = re.findall(
+    blocks: list[str] = re.findall(
         r"```(?:python|py)\s*\n(.*?)```", response, re.DOTALL
     )
 
@@ -39,12 +39,14 @@ def extract_answer(response: str) -> str | None:
     Falls back to extracting the last number in the response.
     """
     # Last occurrence of ANSWER: ...
-    matches = re.findall(r"ANSWER:\s*(.+?)$", response, re.MULTILINE | re.IGNORECASE)
+    matches: list[str] = re.findall(
+        r"ANSWER:\s*(.+?)$", response, re.MULTILINE | re.IGNORECASE
+    )
     if matches:
         return matches[-1].strip()
 
     # Fallback: last number (int or float) in the response
-    numbers = re.findall(r"-?\d+(?:\.\d+)?", response)
+    numbers: list[str] = re.findall(r"-?\d+(?:\.\d+)?", response)
     if numbers:
         return numbers[-1]
 

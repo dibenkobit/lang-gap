@@ -62,21 +62,24 @@ def _delta_str(en: Score, ru: Score) -> str:
     return f"{sign}{d:.0f}%"
 
 
+def _make_predicate(
+    lang: str, prefix: str | None = None
+) -> Callable[[EvalResult], bool]:
+    """Build a filter predicate for scoring."""
+    if prefix is not None:
+        return lambda r: r.language == lang and r.question_id.startswith(prefix)
+    return lambda r: r.language == lang
+
+
 def _model_scores(model_results: list[EvalResult]) -> dict[tuple[str, str], Score]:
     """Compute all scores for a single model."""
-    s = {}
+    s: dict[tuple[str, str], Score] = {}
     for cat in ("coding", "reasoning"):
         prefix = _PREFIX[cat]
         for lang in ("en", "ru"):
-            s[(cat, lang)] = _score(
-                model_results,
-                lambda r, p=prefix, la=lang: r.language == la
-                and r.question_id.startswith(p),
-            )
+            s[(cat, lang)] = _score(model_results, _make_predicate(lang, prefix))
     for lang in ("en", "ru"):
-        s[("all", lang)] = _score(
-            model_results, lambda r, la=lang: r.language == la
-        )
+        s[("all", lang)] = _score(model_results, _make_predicate(lang))
     return s
 
 
