@@ -41,7 +41,7 @@ def load_questions(categories: list[str] | None = None) -> list[Question]:
         if categories and category not in categories:
             continue
 
-        with open(path) as f:
+        with open(path, encoding="utf-8") as f:
             raw = yaml.safe_load(f)
 
         if not raw:
@@ -149,7 +149,7 @@ async def run(
 ) -> RunResults | None:
     """Execute a full benchmark run."""
     questions = load_questions(categories)
-    if limit:
+    if limit is not None:
         questions = questions[:limit]
 
     if not questions:
