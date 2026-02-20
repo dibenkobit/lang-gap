@@ -59,7 +59,7 @@ Any model available on [OpenRouter](https://openrouter.ai) works — just add it
 
 Each run produces:
 
-- **`results/<run-id>.json`** — raw evaluation data (gitignored)
+- **`results/<run-id>.json`** — raw evaluation data
 - **`reports/<run-id>.md`** — markdown tables per category + overall, plus a list of specific questions where EN passed but RU failed
 
 ## License
