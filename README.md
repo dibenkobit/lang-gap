@@ -1,67 +1,49 @@
-# LangBench: EN vs RU LLM Benchmark
+# lang-gap
 
-Measures how much quality frontier LLMs lose when prompted in Russian instead of English. ~100 original questions (50 coding, 50 reasoning) are sent to each model twice — once in English, once in Russian — and the accuracy delta is the benchmark's output.
+Sends the same questions to LLMs in English and Russian, compares accuracy. The gap tells you how much a model degrades in Russian.
 
-## Why
+100 original questions (50 coding, 50 reasoning). No recycled benchmarks — everything written from scratch to avoid contamination.
 
-- **MERA** tests Russian-only (no English baseline to compare against)
-- **MMLU-ProX** excludes Claude and Gemini
-- **Global-MMLU-Lite** excludes Russian
+## How it works
 
-None of these answer: "How much worse does model X perform in Russian vs English?"
+1. Load questions from `questions/*.yaml` (each has `prompt_en` + `prompt_ru`)
+2. Send each prompt to each model via OpenRouter (temperature=0)
+3. For coding: extract code, run against test cases in a sandbox
+4. For reasoning: extract `ANSWER:` from response, compare to expected
+5. Print a table showing EN accuracy, RU accuracy, and the delta
+
+## Run it
+
+```
+cp .env.example .env        # put your OpenRouter key there
+pip install -e .             # install deps
+python -m lang_gap --dry-run # check everything loads, no API calls
+python -m lang_gap --models gpt-4.1 --limit 5  # cheap test run
+python -m lang_gap           # full run, all models, ~$25-35
+```
 
 ## Models
 
-All accessed via OpenRouter (temperature=0):
+Edit `src/lang_gap/config.py` to add/remove. Currently:
 
-| Model | OpenRouter ID |
-|-------|--------------|
-| Claude Opus 4.6 | `anthropic/claude-opus-4-6` |
-| Claude Sonnet 4.6 | `anthropic/claude-sonnet-4-6` |
-| GPT-5.2 | `openai/gpt-5.2` |
-| GPT-4.1 | `openai/gpt-4.1` |
-| Gemini 2.5 Pro | `google/gemini-2.5-pro-preview-06-05` |
-| DeepSeek R1 | `deepseek/deepseek-r1` |
+Claude Opus 4.6, Claude Sonnet 4.6, GPT-5.2, GPT-4.1, Gemini 2.5 Pro, DeepSeek R1
 
-## Setup
+## Output
 
-```bash
-# Clone and install
-cd lang-gap
-cp .env.example .env
-# Edit .env with your OpenRouter API key
+`results/` — raw JSON (one file per run, gitignored)
+`reports/` — markdown tables like:
 
-# Install with uv
-uv pip install -e .
-# Or with pip
-pip install -e .
+```
+Model           | EN    | RU    | Δ
+Claude Opus 4.6 | 90%   | 87%   | -3%
+GPT-4.1         | 85%   | 78%   | -7%
 ```
 
-## Usage
+Plus a list of specific questions where EN passed but RU failed.
 
-```bash
-# Dry run — validate questions, show what would be sent
-python -m lang_gap --dry-run
+## Questions
 
-# Quick test — 5 questions on one model
-python -m lang_gap --models gpt-4.1 --questions coding --limit 5
+`questions/coding.yaml` — 50 Python problems, 4-6 test cases each
+`questions/reasoning.yaml` — 50 math/logic/analytical word problems
 
-# Full run — all models, all questions
-python -m lang_gap --models all --questions all
-
-# Specific models and categories
-python -m lang_gap --models claude-opus-4.6,gpt-5.2 --questions reasoning
-```
-
-Results are saved to `results/` (JSON) and reports to `reports/` (Markdown).
-
-## Question Design
-
-All questions are original (no existing benchmark contamination). Each has paired English and Russian prompts — the Russian is a natural re-statement, not a translation.
-
-- **Coding** (50 questions): Python function implementation, 15 easy / 20 medium / 15 hard
-- **Reasoning** (50 questions): Math, logic, and analytical word problems, same distribution
-
-## Cost
-
-~1,200 API calls per full run. Estimated $25-35 depending on reasoning model token usage.
+To add more, use the prompt in `prompts/question_writer.md` with any frontier model.
