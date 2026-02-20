@@ -1,0 +1,1353 @@
+# LangBench coding questions: 50 Python problems (15 easy, 20 medium, 15 hard)
+# Each question has English and Russian prompts with 4-6 test cases.
+
+# ============================================================================
+# EASY (code_001 – code_015)
+# ============================================================================
+
+- id: "code_001"
+  category: "coding"
+  difficulty: "easy"
+  prompt_en: |
+    Given a string, count how many words in it have an odd number of characters.
+    Words are separated by single spaces. There are no leading or trailing spaces.
+    An empty string contains zero words.
+  prompt_ru: |
+    Дана строка. Подсчитайте, сколько слов в ней содержат нечётное количество
+    символов. Слова разделены одиночными пробелами. Начальных и конечных
+    пробелов нет. Пустая строка не содержит слов.
+  function_name: "count_odd_length_words"
+  function_signature: "def count_odd_length_words(s: str) -> int"
+  test_cases:
+    - input: 'count_odd_length_words("hello world foo")'
+      expected: "3"
+    - input: 'count_odd_length_words("hi there")'
+      expected: "1"
+    - input: 'count_odd_length_words("")'
+      expected: "0"
+    - input: 'count_odd_length_words("a")'
+      expected: "1"
+    - input: 'count_odd_length_words("ab cd ef gh")'
+      expected: "0"
+
+- id: "code_002"
+  category: "coding"
+  difficulty: "easy"
+  prompt_en: |
+    Given a list of integers, return a new list containing only those elements
+    whose digit sum is even. Preserve the original order. For negative numbers,
+    use the absolute value when computing the digit sum.
+  prompt_ru: |
+    Дан список целых чисел. Верните новый список, содержащий только те элементы,
+    сумма цифр которых чётная. Порядок элементов должен сохраняться. Для
+    отрицательных чисел сумму цифр считайте по модулю.
+  function_name: "filter_even_digit_sum"
+  function_signature: "def filter_even_digit_sum(nums: list[int]) -> list[int]"
+  test_cases:
+    - input: "filter_even_digit_sum([13, 22, 45, 100])"
+      expected: "[13, 22]"
+    - input: "filter_even_digit_sum([])"
+      expected: "[]"
+    - input: "filter_even_digit_sum([0])"
+      expected: "[0]"
+    - input: "filter_even_digit_sum([-13, -22, 7])"
+      expected: "[-13, -22]"
+    - input: "filter_even_digit_sum([11, 22, 33, 44])"
+      expected: "[11, 22, 33, 44]"
+
+- id: "code_003"
+  category: "coding"
+  difficulty: "easy"
+  prompt_en: |
+    Given two strings of equal length, count the number of positions where the
+    characters differ (Hamming distance). If the strings have different lengths,
+    return -1.
+  prompt_ru: |
+    Даны две строки одинаковой длины. Подсчитайте количество позиций, в которых
+    символы различаются (расстояние Хэмминга). Если строки имеют разную длину,
+    верните -1.
+  function_name: "hamming_distance"
+  function_signature: "def hamming_distance(s1: str, s2: str) -> int"
+  test_cases:
+    - input: 'hamming_distance("karolin", "kathrin")'
+      expected: "3"
+    - input: 'hamming_distance("", "")'
+      expected: "0"
+    - input: 'hamming_distance("abc", "ab")'
+      expected: "-1"
+    - input: 'hamming_distance("aaaa", "aaaa")'
+      expected: "0"
+    - input: 'hamming_distance("abcdef", "fedcba")'
+      expected: "6"
+
+- id: "code_004"
+  category: "coding"
+  difficulty: "easy"
+  prompt_en: |
+    Given a positive integer n, return the sum of all its proper divisors
+    (all positive divisors excluding n itself). If n is 1, return 0.
+  prompt_ru: |
+    Дано натуральное число n. Верните сумму всех его собственных делителей
+    (всех положительных делителей, кроме самого n). Для n = 1 верните 0.
+  function_name: "sum_proper_divisors"
+  function_signature: "def sum_proper_divisors(n: int) -> int"
+  test_cases:
+    - input: "sum_proper_divisors(12)"
+      expected: "16"
+    - input: "sum_proper_divisors(1)"
+      expected: "0"
+    - input: "sum_proper_divisors(28)"
+      expected: "28"
+    - input: "sum_proper_divisors(7)"
+      expected: "1"
+    - input: "sum_proper_divisors(100)"
+      expected: "117"
+
+- id: "code_005"
+  category: "coding"
+  difficulty: "easy"
+  prompt_en: |
+    Given a string consisting of parentheses '(' and ')', determine whether
+    the parentheses are balanced. A string is balanced if every opening
+    parenthesis has a corresponding closing one, and they are properly nested.
+    An empty string is considered balanced.
+  prompt_ru: |
+    Дана строка, состоящая из круглых скобок '(' и ')'. Определите, является ли
+    последовательность скобок сбалансированной. Строка сбалансирована, если
+    каждой открывающей скобке соответствует закрывающая, и вложенность корректна.
+    Пустая строка считается сбалансированной.
+  function_name: "is_balanced_parens"
+  function_signature: "def is_balanced_parens(s: str) -> bool"
+  test_cases:
+    - input: 'is_balanced_parens("(())")'
+      expected: "True"
+    - input: 'is_balanced_parens("")'
+      expected: "True"
+    - input: 'is_balanced_parens("(()")'
+      expected: "False"
+    - input: 'is_balanced_parens(")(")'
+      expected: "False"
+    - input: 'is_balanced_parens("()()(())")'
+      expected: "True"
+
+- id: "code_006"
+  category: "coding"
+  difficulty: "easy"
+  prompt_en: |
+    Given a list of strings, return a dictionary mapping each unique string
+    length to the count of strings having that length.
+  prompt_ru: |
+    Дан список строк. Верните словарь, в котором каждой уникальной длине строки
+    соответствует количество строк с такой длиной.
+  function_name: "length_histogram"
+  function_signature: "def length_histogram(words: list[str]) -> dict[int, int]"
+  test_cases:
+    - input: 'length_histogram(["cat", "dog", "hi", "hello"])'
+      expected: "{3: 2, 2: 1, 5: 1}"
+    - input: "length_histogram([])"
+      expected: "{}"
+    - input: 'length_histogram(["", "", "a"])'
+      expected: "{0: 2, 1: 1}"
+    - input: 'length_histogram(["test"])'
+      expected: "{4: 1}"
+    - input: 'length_histogram(["ab", "cd", "ef", "gh"])'
+      expected: "{2: 4}"
+
+- id: "code_007"
+  category: "coding"
+  difficulty: "easy"
+  prompt_en: |
+    Given a non-negative integer, return the integer with its digits reversed.
+    Leading zeros in the result should be dropped (i.e., return a normal integer).
+    For example, 1200 becomes 21.
+  prompt_ru: |
+    Дано неотрицательное целое число. Верните число с цифрами в обратном порядке.
+    Ведущие нули в результате отбрасываются (возвращается обычное число).
+    Например, 1200 становится 21.
+  function_name: "reverse_digits"
+  function_signature: "def reverse_digits(n: int) -> int"
+  test_cases:
+    - input: "reverse_digits(12345)"
+      expected: "54321"
+    - input: "reverse_digits(0)"
+      expected: "0"
+    - input: "reverse_digits(1200)"
+      expected: "21"
+    - input: "reverse_digits(7)"
+      expected: "7"
+    - input: "reverse_digits(1000000)"
+      expected: "1"
+
+- id: "code_008"
+  category: "coding"
+  difficulty: "easy"
+  prompt_en: |
+    Given a list of integers, return the difference between the largest and
+    smallest elements. If the list has fewer than 2 elements, return 0.
+  prompt_ru: |
+    Дан список целых чисел. Верните разницу между наибольшим и наименьшим
+    элементами. Если в списке меньше двух элементов, верните 0.
+  function_name: "range_of_list"
+  function_signature: "def range_of_list(nums: list[int]) -> int"
+  test_cases:
+    - input: "range_of_list([3, 7, 1, 9, 4])"
+      expected: "8"
+    - input: "range_of_list([])"
+      expected: "0"
+    - input: "range_of_list([5])"
+      expected: "0"
+    - input: "range_of_list([5, 5, 5])"
+      expected: "0"
+    - input: "range_of_list([-10, 20, -30, 40])"
+      expected: "70"
+
+- id: "code_009"
+  category: "coding"
+  difficulty: "easy"
+  prompt_en: |
+    Given a string, return a new string where each character is duplicated.
+    For example, "abc" becomes "aabbcc".
+  prompt_ru: |
+    Дана строка. Верните новую строку, в которой каждый символ продублирован.
+    Например, "abc" превращается в "aabbcc".
+  function_name: "double_chars"
+  function_signature: "def double_chars(s: str) -> str"
+  test_cases:
+    - input: 'double_chars("abc")'
+      expected: '"aabbcc"'
+    - input: 'double_chars("")'
+      expected: '""'
+    - input: 'double_chars("x")'
+      expected: '"xx"'
+    - input: 'double_chars("Hi!")'
+      expected: '"HHii!!"'
+    - input: 'double_chars("123")'
+      expected: '"112233"'
+
+- id: "code_010"
+  category: "coding"
+  difficulty: "easy"
+  prompt_en: |
+    Given a list of integers, return True if the list is sorted in
+    strictly ascending order, and False otherwise. An empty list or a
+    single-element list is considered sorted.
+  prompt_ru: |
+    Дан список целых чисел. Верните True, если список отсортирован строго
+    по возрастанию, и False в противном случае. Пустой список и список
+    из одного элемента считаются отсортированными.
+  function_name: "is_strictly_ascending"
+  function_signature: "def is_strictly_ascending(nums: list[int]) -> bool"
+  test_cases:
+    - input: "is_strictly_ascending([1, 3, 5, 7])"
+      expected: "True"
+    - input: "is_strictly_ascending([])"
+      expected: "True"
+    - input: "is_strictly_ascending([1])"
+      expected: "True"
+    - input: "is_strictly_ascending([1, 2, 2, 3])"
+      expected: "False"
+    - input: "is_strictly_ascending([5, 3, 1])"
+      expected: "False"
+
+- id: "code_011"
+  category: "coding"
+  difficulty: "easy"
+  prompt_en: |
+    Given a list of integers, return the product of all non-zero elements.
+    If the list is empty or all elements are zero, return 0.
+  prompt_ru: |
+    Дан список целых чисел. Верните произведение всех ненулевых элементов.
+    Если список пуст или все элементы равны нулю, верните 0.
+  function_name: "product_nonzero"
+  function_signature: "def product_nonzero(nums: list[int]) -> int"
+  test_cases:
+    - input: "product_nonzero([2, 0, 3, 0, 5])"
+      expected: "30"
+    - input: "product_nonzero([])"
+      expected: "0"
+    - input: "product_nonzero([0, 0, 0])"
+      expected: "0"
+    - input: "product_nonzero([7])"
+      expected: "7"
+    - input: "product_nonzero([-2, 3, -4])"
+      expected: "24"
+
+- id: "code_012"
+  category: "coding"
+  difficulty: "easy"
+  prompt_en: |
+    Given a string containing only lowercase English letters, return the
+    character that appears most frequently. If there is a tie, return the
+    character that comes first alphabetically. If the string is empty,
+    return an empty string.
+  prompt_ru: |
+    Дана строка, состоящая только из строчных латинских букв. Верните символ,
+    который встречается чаще всего. При одинаковой частоте верните символ,
+    который идёт раньше в алфавитном порядке. Для пустой строки верните
+    пустую строку.
+  function_name: "most_frequent_char"
+  function_signature: "def most_frequent_char(s: str) -> str"
+  test_cases:
+    - input: 'most_frequent_char("abracadabra")'
+      expected: '"a"'
+    - input: 'most_frequent_char("")'
+      expected: '""'
+    - input: 'most_frequent_char("aabb")'
+      expected: '"a"'
+    - input: 'most_frequent_char("z")'
+      expected: '"z"'
+    - input: 'most_frequent_char("zyxzyxzyx")'
+      expected: '"x"'
+
+- id: "code_013"
+  category: "coding"
+  difficulty: "easy"
+  prompt_en: |
+    Given a list of integers, return a new list where each element is
+    replaced by its running (cumulative) sum. For example, [1, 2, 3]
+    becomes [1, 3, 6]. An empty list returns an empty list.
+  prompt_ru: |
+    Дан список целых чисел. Верните новый список, в котором каждый элемент
+    заменён на накопительную (кумулятивную) сумму. Например, [1, 2, 3]
+    превращается в [1, 3, 6]. Для пустого списка верните пустой список.
+  function_name: "cumulative_sum"
+  function_signature: "def cumulative_sum(nums: list[int]) -> list[int]"
+  test_cases:
+    - input: "cumulative_sum([1, 2, 3, 4])"
+      expected: "[1, 3, 6, 10]"
+    - input: "cumulative_sum([])"
+      expected: "[]"
+    - input: "cumulative_sum([5])"
+      expected: "[5]"
+    - input: "cumulative_sum([-1, 2, -3, 4])"
+      expected: "[-1, 1, -2, 2]"
+    - input: "cumulative_sum([0, 0, 0])"
+      expected: "[0, 0, 0]"
+
+- id: "code_014"
+  category: "coding"
+  difficulty: "easy"
+  prompt_en: |
+    Given two lists of integers of the same length, return a new list
+    where each element is the maximum of the corresponding elements from the
+    two input lists. If the lists have different lengths, return an empty list.
+  prompt_ru: |
+    Даны два списка целых чисел одинаковой длины. Верните новый список,
+    в котором каждый элемент является максимумом из соответствующих элементов
+    двух входных списков. Если длины списков различаются, верните пустой список.
+  function_name: "elementwise_max"
+  function_signature: "def elementwise_max(a: list[int], b: list[int]) -> list[int]"
+  test_cases:
+    - input: "elementwise_max([1, 5, 3], [4, 2, 6])"
+      expected: "[4, 5, 6]"
+    - input: "elementwise_max([], [])"
+      expected: "[]"
+    - input: "elementwise_max([1], [2, 3])"
+      expected: "[]"
+    - input: "elementwise_max([7], [3])"
+      expected: "[7]"
+    - input: "elementwise_max([-1, -5], [-3, -2])"
+      expected: "[-1, -2]"
+
+- id: "code_015"
+  category: "coding"
+  difficulty: "easy"
+  prompt_en: |
+    Given a string of lowercase letters, determine whether it is a pangram
+    over the first k letters of the English alphabet. A string is a k-pangram
+    if it contains every letter from 'a' to the k-th letter at least once.
+    k is a positive integer between 1 and 26 inclusive.
+  prompt_ru: |
+    Дана строка из строчных латинских букв. Определите, является ли она
+    панграммой по первым k буквам английского алфавита. Строка является
+    k-панграммой, если содержит каждую букву от 'a' до k-й буквы хотя бы раз.
+    k — натуральное число от 1 до 26 включительно.
+  function_name: "is_k_pangram"
+  function_signature: "def is_k_pangram(s: str, k: int) -> bool"
+  test_cases:
+    - input: 'is_k_pangram("abcdef", 5)'
+      expected: "True"
+    - input: 'is_k_pangram("", 1)'
+      expected: "False"
+    - input: 'is_k_pangram("a", 1)'
+      expected: "True"
+    - input: 'is_k_pangram("abcxyz", 4)'
+      expected: "False"
+    - input: 'is_k_pangram("aabbccdd", 3)'
+      expected: "True"
+
+# ============================================================================
+# MEDIUM (code_016 – code_035)
+# ============================================================================
+
+- id: "code_016"
+  category: "coding"
+  difficulty: "medium"
+  prompt_en: |
+    Given a list of integers, find the length of the longest contiguous
+    subarray whose elements sum to zero. If no such subarray exists, return 0.
+    A single element equal to 0 counts as a subarray of length 1.
+  prompt_ru: |
+    Дан список целых чисел. Найдите длину самого длинного непрерывного
+    подмассива, сумма элементов которого равна нулю. Если такого подмассива
+    нет, верните 0. Единственный элемент, равный нулю, считается подмассивом
+    длины 1.
+  function_name: "longest_zero_sum_subarray"
+  function_signature: "def longest_zero_sum_subarray(nums: list[int]) -> int"
+  test_cases:
+    - input: "longest_zero_sum_subarray([1, -1, 2, -2, 3])"
+      expected: "4"
+    - input: "longest_zero_sum_subarray([])"
+      expected: "0"
+    - input: "longest_zero_sum_subarray([1, 2, 3])"
+      expected: "0"
+    - input: "longest_zero_sum_subarray([0])"
+      expected: "1"
+    - input: "longest_zero_sum_subarray([3, -3, 3, -3, 3])"
+      expected: "4"
+    - input: "longest_zero_sum_subarray([1, 2, -3, 3, -3, 4])"
+      expected: "5"
+
+- id: "code_017"
+  category: "coding"
+  difficulty: "medium"
+  prompt_en: |
+    Given a string, find the length of the longest substring that contains
+    at most two distinct characters. If the string is empty, return 0.
+  prompt_ru: |
+    Дана строка. Найдите длину самой длинной подстроки, содержащей не более
+    двух различных символов. Для пустой строки верните 0.
+  function_name: "longest_two_char_substring"
+  function_signature: "def longest_two_char_substring(s: str) -> int"
+  test_cases:
+    - input: 'longest_two_char_substring("aabbc")'
+      expected: "4"
+    - input: 'longest_two_char_substring("")'
+      expected: "0"
+    - input: 'longest_two_char_substring("a")'
+      expected: "1"
+    - input: 'longest_two_char_substring("abcabcabc")'
+      expected: "2"
+    - input: 'longest_two_char_substring("aaaaaaa")'
+      expected: "7"
+    - input: 'longest_two_char_substring("aabbccbbaa")'
+      expected: "6"
+
+- id: "code_018"
+  category: "coding"
+  difficulty: "medium"
+  prompt_en: |
+    Given a list of closed intervals [start, end] where start <= end, merge all
+    overlapping intervals and return the merged list sorted by start time.
+    Two intervals overlap if one starts before or exactly when the other ends.
+    For example, [1, 3] and [3, 5] overlap and merge to [1, 5].
+  prompt_ru: |
+    Дан список замкнутых интервалов [начало, конец], где начало <= конец.
+    Объедините все пересекающиеся интервалы и верните результат, отсортированный
+    по началу. Два интервала пересекаются, если один начинается до окончания
+    другого или в тот же момент. Например, [1, 3] и [3, 5] пересекаются
+    и объединяются в [1, 5].
+  function_name: "merge_intervals"
+  function_signature: "def merge_intervals(intervals: list[list[int]]) -> list[list[int]]"
+  test_cases:
+    - input: "merge_intervals([[1, 3], [2, 6], [8, 10], [15, 18]])"
+      expected: "[[1, 6], [8, 10], [15, 18]]"
+    - input: "merge_intervals([])"
+      expected: "[]"
+    - input: "merge_intervals([[1, 4], [4, 5]])"
+      expected: "[[1, 5]]"
+    - input: "merge_intervals([[5, 7]])"
+      expected: "[[5, 7]]"
+    - input: "merge_intervals([[1, 10], [2, 3], [4, 5], [6, 7]])"
+      expected: "[[1, 10]]"
+
+- id: "code_019"
+  category: "coding"
+  difficulty: "medium"
+  prompt_en: |
+    Given a list of integers and an integer k, return the k most frequent
+    elements. If multiple elements have the same frequency, prefer the
+    element with the smaller value. Return the result sorted in descending
+    order of frequency, then ascending order of value for ties.
+    k is guaranteed to be between 1 and the number of unique elements inclusive.
+  prompt_ru: |
+    Дан список целых чисел и число k. Верните k наиболее часто встречающихся
+    элементов. При одинаковой частоте предпочтение отдаётся меньшему значению.
+    Результат отсортируйте по убыванию частоты, при равной частоте — по
+    возрастанию значения. k гарантированно находится в диапазоне от 1 до
+    количества уникальных элементов включительно.
+  function_name: "top_k_frequent"
+  function_signature: "def top_k_frequent(nums: list[int], k: int) -> list[int]"
+  test_cases:
+    - input: "top_k_frequent([1, 1, 1, 2, 2, 3], 2)"
+      expected: "[1, 2]"
+    - input: "top_k_frequent([5], 1)"
+      expected: "[5]"
+    - input: "top_k_frequent([4, 4, 5, 5, 6], 2)"
+      expected: "[4, 5]"
+    - input: "top_k_frequent([1, 2, 3, 4, 5], 3)"
+      expected: "[1, 2, 3]"
+    - input: "top_k_frequent([7, 7, 8, 8, 8, 9, 9, 9], 1)"
+      expected: "[8]"
+
+- id: "code_020"
+  category: "coding"
+  difficulty: "medium"
+  prompt_en: |
+    Given a string containing digits, letters, and other characters,
+    extract all integers (sequences of consecutive digits) from it and
+    return their sum. If no integers are found, return 0.
+    For example, "abc123def45" contains 123 and 45, so the sum is 168.
+    Digits are always non-negative (there are no minus signs attached to them).
+  prompt_ru: |
+    Дана строка, содержащая цифры, буквы и прочие символы. Извлеките из неё
+    все целые числа (последовательности идущих подряд цифр) и верните их сумму.
+    Если чисел нет, верните 0. Например, в "abc123def45" содержатся 123 и 45,
+    сумма равна 168. Все числа неотрицательные (знак минус к ним не относится).
+  function_name: "sum_extracted_numbers"
+  function_signature: "def sum_extracted_numbers(s: str) -> int"
+  test_cases:
+    - input: 'sum_extracted_numbers("abc123def45")'
+      expected: "168"
+    - input: 'sum_extracted_numbers("")'
+      expected: "0"
+    - input: 'sum_extracted_numbers("no digits here")'
+      expected: "0"
+    - input: 'sum_extracted_numbers("0a0b0")'
+      expected: "0"
+    - input: 'sum_extracted_numbers("test1000end")'
+      expected: "1000"
+
+- id: "code_021"
+  category: "coding"
+  difficulty: "medium"
+  prompt_en: |
+    Given a matrix represented as a list of lists of integers (all rows have
+    the same length), rotate it 90 degrees clockwise and return the result.
+    For an empty matrix, return an empty list.
+  prompt_ru: |
+    Дана матрица в виде списка списков целых чисел (все строки одинаковой
+    длины). Поверните её на 90 градусов по часовой стрелке и верните результат.
+    Для пустой матрицы верните пустой список.
+  function_name: "rotate_matrix_90"
+  function_signature: "def rotate_matrix_90(matrix: list[list[int]]) -> list[list[int]]"
+  test_cases:
+    - input: "rotate_matrix_90([[1, 2, 3], [4, 5, 6], [7, 8, 9]])"
+      expected: "[[7, 4, 1], [8, 5, 2], [9, 6, 3]]"
+    - input: "rotate_matrix_90([])"
+      expected: "[]"
+    - input: "rotate_matrix_90([[1]])"
+      expected: "[[1]]"
+    - input: "rotate_matrix_90([[1, 2], [3, 4]])"
+      expected: "[[3, 1], [4, 2]]"
+    - input: "rotate_matrix_90([[1, 2, 3]])"
+      expected: "[[1], [2], [3]]"
+
+- id: "code_022"
+  category: "coding"
+  difficulty: "medium"
+  prompt_en: |
+    Given a list of integers, determine whether it can be partitioned into
+    two non-empty subsets with equal sums. Elements cannot be split — each
+    element goes to exactly one subset.
+  prompt_ru: |
+    Дан список целых чисел. Определите, можно ли разделить его на два
+    непустых подмножества с одинаковыми суммами. Каждый элемент целиком
+    попадает ровно в одно подмножество.
+  function_name: "can_partition_equal"
+  function_signature: "def can_partition_equal(nums: list[int]) -> bool"
+  test_cases:
+    - input: "can_partition_equal([1, 5, 11, 5])"
+      expected: "True"
+    - input: "can_partition_equal([1, 2, 3, 5])"
+      expected: "False"
+    - input: "can_partition_equal([1, 1])"
+      expected: "True"
+    - input: "can_partition_equal([3])"
+      expected: "False"
+    - input: "can_partition_equal([2, 2, 2, 2, 2, 2])"
+      expected: "True"
+    - input: "can_partition_equal([1, 2, 3, 4, 5, 6, 7])"
+      expected: "True"
+
+- id: "code_023"
+  category: "coding"
+  difficulty: "medium"
+  prompt_en: |
+    Given a string of lowercase English letters, compress it using run-length
+    encoding. Consecutive identical characters are replaced by the character
+    followed by the count. Counts of 1 are omitted. For example, "aaabbc"
+    becomes "a3b2c".
+  prompt_ru: |
+    Дана строка из строчных латинских букв. Сожмите её методом кодирования
+    длин серий (RLE). Последовательные одинаковые символы заменяются на
+    символ и количество повторений. Количество 1 не записывается. Например,
+    "aaabbc" становится "a3b2c".
+  function_name: "run_length_encode"
+  function_signature: "def run_length_encode(s: str) -> str"
+  test_cases:
+    - input: 'run_length_encode("aaabbc")'
+      expected: '"a3b2c"'
+    - input: 'run_length_encode("")'
+      expected: '""'
+    - input: 'run_length_encode("abcde")'
+      expected: '"abcde"'
+    - input: 'run_length_encode("aaaaaa")'
+      expected: '"a6"'
+    - input: 'run_length_encode("aabbccdd")'
+      expected: '"a2b2c2d2"'
+
+- id: "code_024"
+  category: "coding"
+  difficulty: "medium"
+  prompt_en: |
+    Given a list of strings representing a valid set of log entries in the
+    format "timestamp:event_type" (timestamp is an integer), find the event
+    type that occurs most frequently. If there is a tie, return the event
+    type that appears first in the list. If the list is empty, return an
+    empty string.
+  prompt_ru: |
+    Дан список строк — записей лога в формате "timestamp:тип_события"
+    (timestamp — целое число). Найдите тип события, который встречается
+    чаще всего. При одинаковой частоте верните тип, который встречается
+    первым в списке. Для пустого списка верните пустую строку.
+  function_name: "most_common_event"
+  function_signature: "def most_common_event(logs: list[str]) -> str"
+  test_cases:
+    - input: 'most_common_event(["1:login", "2:logout", "3:login", "4:login"])'
+      expected: '"login"'
+    - input: "most_common_event([])"
+      expected: '""'
+    - input: 'most_common_event(["1:error"])'
+      expected: '"error"'
+    - input: 'most_common_event(["1:a", "2:b", "3:a", "4:b"])'
+      expected: '"a"'
+    - input: 'most_common_event(["10:click", "20:scroll", "30:click", "40:scroll", "50:scroll"])'
+      expected: '"scroll"'
+
+- id: "code_025"
+  category: "coding"
+  difficulty: "medium"
+  prompt_en: |
+    Given a list of integers, return the length of the longest subsequence
+    (not necessarily contiguous) where each element is exactly one greater
+    than the previous element. For example, in [5, 1, 4, 2, 3, 8, 9],
+    the subsequence [1, 2, 3, 4, 5] has length 5.
+    For an empty list, return 0.
+  prompt_ru: |
+    Дан список целых чисел. Верните длину самой длинной подпоследовательности
+    (не обязательно непрерывной), в которой каждый элемент ровно на единицу
+    больше предыдущего. Например, в [5, 1, 4, 2, 3, 8, 9] подпоследовательность
+    [1, 2, 3, 4, 5] имеет длину 5. Для пустого списка верните 0.
+  function_name: "longest_consecutive_sequence"
+  function_signature: "def longest_consecutive_sequence(nums: list[int]) -> int"
+  test_cases:
+    - input: "longest_consecutive_sequence([5, 1, 4, 2, 3, 8, 9])"
+      expected: "5"
+    - input: "longest_consecutive_sequence([])"
+      expected: "0"
+    - input: "longest_consecutive_sequence([10])"
+      expected: "1"
+    - input: "longest_consecutive_sequence([100, 4, 200, 1, 3, 2])"
+      expected: "4"
+    - input: "longest_consecutive_sequence([1, 1, 1])"
+      expected: "1"
+
+- id: "code_026"
+  category: "coding"
+  difficulty: "medium"
+  prompt_en: |
+    Given a list of words and a target word, find all words in the list that
+    are anagrams of the target. Two words are anagrams if they consist of
+    the same characters with the same frequencies, ignoring case. Return
+    the anagrams in the order they appear in the input list. If none are
+    found, return an empty list.
+  prompt_ru: |
+    Дан список слов и целевое слово. Найдите все слова в списке, являющиеся
+    анаграммами целевого. Два слова являются анаграммами, если состоят из
+    одних и тех же символов с одинаковыми частотами, без учёта регистра.
+    Верните анаграммы в порядке их появления в исходном списке. Если
+    анаграмм нет, верните пустой список.
+  function_name: "find_anagrams"
+  function_signature: "def find_anagrams(words: list[str], target: str) -> list[str]"
+  test_cases:
+    - input: 'find_anagrams(["listen", "silent", "hello", "enlist"], "tinsel")'
+      expected: '["listen", "silent", "enlist"]'
+    - input: 'find_anagrams([], "test")'
+      expected: "[]"
+    - input: 'find_anagrams(["abc", "def"], "xyz")'
+      expected: "[]"
+    - input: 'find_anagrams(["Tea", "Eat", "ate"], "EAT")'
+      expected: '["Tea", "Eat", "ate"]'
+    - input: 'find_anagrams(["a"], "a")'
+      expected: '["a"]'
+
+- id: "code_027"
+  category: "coding"
+  difficulty: "medium"
+  prompt_en: |
+    Given a nested dictionary (values can be dicts or non-dict values),
+    flatten it into a single-level dictionary where keys are joined by dots.
+    For example, {"a": {"b": 1, "c": {"d": 2}}} becomes
+    {"a.b": 1, "a.c.d": 2}. The input dictionary will not be empty.
+    There are no list values — only dicts and non-dict leaf values.
+  prompt_ru: |
+    Дан вложенный словарь (значения могут быть словарями или не-словарными
+    значениями). Преобразуйте его в одноуровневый словарь, соединяя ключи
+    точками. Например, {"a": {"b": 1, "c": {"d": 2}}} превращается в
+    {"a.b": 1, "a.c.d": 2}. Входной словарь не пуст. Значений-списков нет —
+    только словари и листовые значения.
+  function_name: "flatten_dict"
+  function_signature: "def flatten_dict(d: dict) -> dict"
+  test_cases:
+    - input: 'flatten_dict({"a": {"b": 1, "c": {"d": 2}}})'
+      expected: '{"a.b": 1, "a.c.d": 2}'
+    - input: 'flatten_dict({"x": 10})'
+      expected: '{"x": 10}'
+    - input: 'flatten_dict({"a": {"b": {"c": {"d": 5}}}})'
+      expected: '{"a.b.c.d": 5}'
+    - input: 'flatten_dict({"k1": 1, "k2": 2})'
+      expected: '{"k1": 1, "k2": 2}'
+
+- id: "code_028"
+  category: "coding"
+  difficulty: "medium"
+  prompt_en: |
+    Given a string of opening and closing brackets of three types:
+    '(', ')', '[', ']', '{', '}', determine whether the brackets are
+    properly balanced and nested. An empty string is balanced. Characters
+    other than brackets will not appear in the input.
+  prompt_ru: |
+    Дана строка из открывающих и закрывающих скобок трёх типов: '(', ')',
+    '[', ']', '{', '}'. Определите, правильно ли скобки сбалансированы
+    и вложены. Пустая строка считается сбалансированной. Символов,
+    кроме скобок, во входных данных не будет.
+  function_name: "is_balanced_brackets"
+  function_signature: "def is_balanced_brackets(s: str) -> bool"
+  test_cases:
+    - input: 'is_balanced_brackets("({[]})")'
+      expected: "True"
+    - input: 'is_balanced_brackets("")'
+      expected: "True"
+    - input: 'is_balanced_brackets("([)]")'
+      expected: "False"
+    - input: 'is_balanced_brackets("{{{}}}")'
+      expected: "True"
+    - input: 'is_balanced_brackets("(")'
+      expected: "False"
+    - input: 'is_balanced_brackets("[({})][]")'
+      expected: "True"
+
+- id: "code_029"
+  category: "coding"
+  difficulty: "medium"
+  prompt_en: |
+    Given a list of integers, find the maximum sum of any non-empty contiguous
+    subarray. This is the classic Kadane's problem.
+  prompt_ru: |
+    Дан список целых чисел. Найдите максимальную сумму любого непустого
+    непрерывного подмассива. Это классическая задача Кадане.
+  function_name: "max_subarray_sum"
+  function_signature: "def max_subarray_sum(nums: list[int]) -> int"
+  test_cases:
+    - input: "max_subarray_sum([-2, 1, -3, 4, -1, 2, 1, -5, 4])"
+      expected: "6"
+    - input: "max_subarray_sum([1])"
+      expected: "1"
+    - input: "max_subarray_sum([-1, -2, -3])"
+      expected: "-1"
+    - input: "max_subarray_sum([5, 4, -1, 7, 8])"
+      expected: "23"
+    - input: "max_subarray_sum([0, 0, 0, 0])"
+      expected: "0"
+
+- id: "code_030"
+  category: "coding"
+  difficulty: "medium"
+  prompt_en: |
+    Given a string, check if it can be rearranged to form a palindrome.
+    A string can form a palindrome if at most one character has an odd
+    frequency. Ignore case (treat 'A' and 'a' as the same character).
+    An empty string is considered a valid palindrome.
+  prompt_ru: |
+    Дана строка. Проверьте, можно ли переставить её символы так, чтобы
+    получился палиндром. Строку можно превратить в палиндром, если не более
+    одного символа имеет нечётную частоту. Регистр игнорируется ('A' и 'a' —
+    один и тот же символ). Пустая строка считается палиндромом.
+  function_name: "can_form_palindrome"
+  function_signature: "def can_form_palindrome(s: str) -> bool"
+  test_cases:
+    - input: 'can_form_palindrome("Tact Coa")'
+      expected: "True"
+    - input: 'can_form_palindrome("")'
+      expected: "True"
+    - input: 'can_form_palindrome("abc")'
+      expected: "False"
+    - input: 'can_form_palindrome("aabb")'
+      expected: "True"
+    - input: 'can_form_palindrome("racecar")'
+      expected: "True"
+
+- id: "code_031"
+  category: "coding"
+  difficulty: "medium"
+  prompt_en: |
+    Given a sorted list of distinct integers, find the starting and ending
+    indices of a given target value. If the target is not found, return
+    [-1, -1]. Since the list contains distinct values, start and end will
+    be equal if found.
+    Wait — correction: the list may contain DUPLICATES. Find the first and
+    last positions of the target. Use an approach better than linear scan.
+  prompt_ru: |
+    Дан отсортированный список целых чисел (возможны дубликаты). Найдите
+    индекс первого и последнего вхождения заданного целевого значения.
+    Если значение не найдено, верните [-1, -1]. Используйте подход
+    эффективнее линейного перебора.
+  function_name: "search_range"
+  function_signature: "def search_range(nums: list[int], target: int) -> list[int]"
+  test_cases:
+    - input: "search_range([5, 7, 7, 8, 8, 10], 8)"
+      expected: "[3, 4]"
+    - input: "search_range([], 0)"
+      expected: "[-1, -1]"
+    - input: "search_range([1], 1)"
+      expected: "[0, 0]"
+    - input: "search_range([1, 2, 3, 4, 5], 6)"
+      expected: "[-1, -1]"
+    - input: "search_range([2, 2, 2, 2, 2], 2)"
+      expected: "[0, 4]"
+
+- id: "code_032"
+  category: "coding"
+  difficulty: "medium"
+  prompt_en: |
+    Given a list of integers and an integer target, return all unique
+    pairs of elements that sum to the target. Each pair should be sorted
+    in ascending order, and the list of pairs should be sorted
+    lexicographically. No element may be used more than once per pair
+    (but the same value can appear in different pairs if it occurs
+    multiple times in the input).
+  prompt_ru: |
+    Дан список целых чисел и целевое значение. Верните все уникальные пары
+    элементов, дающих в сумме целевое значение. Каждая пара отсортирована
+    по возрастанию, а список пар — лексикографически. Каждый элемент
+    используется не более одного раза в паре (но одно и то же значение
+    может участвовать в разных парах, если оно встречается несколько раз).
+  function_name: "two_sum_pairs"
+  function_signature: "def two_sum_pairs(nums: list[int], target: int) -> list[list[int]]"
+  test_cases:
+    - input: "two_sum_pairs([1, 2, 3, 4, 5], 6)"
+      expected: "[[1, 5], [2, 4]]"
+    - input: "two_sum_pairs([], 5)"
+      expected: "[]"
+    - input: "two_sum_pairs([3, 3, 3], 6)"
+      expected: "[[3, 3]]"
+    - input: "two_sum_pairs([1, 1, 2, 2, 3, 3], 4)"
+      expected: "[[1, 3], [2, 2]]"
+    - input: "two_sum_pairs([0, 0, 0, 0], 0)"
+      expected: "[[0, 0]]"
+
+- id: "code_033"
+  category: "coding"
+  difficulty: "medium"
+  prompt_en: |
+    Given a list of non-negative integers representing an elevation map
+    where the width of each bar is 1, compute how much water it can trap
+    after raining.
+  prompt_ru: |
+    Дан список неотрицательных целых чисел, представляющих карту высот,
+    где ширина каждого столбца равна 1. Вычислите, сколько воды может
+    задержаться после дождя.
+  function_name: "trap_water"
+  function_signature: "def trap_water(heights: list[int]) -> int"
+  test_cases:
+    - input: "trap_water([0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1])"
+      expected: "6"
+    - input: "trap_water([])"
+      expected: "0"
+    - input: "trap_water([3, 0, 3])"
+      expected: "3"
+    - input: "trap_water([1, 2, 3, 4, 5])"
+      expected: "0"
+    - input: "trap_water([5, 4, 3, 2, 1])"
+      expected: "0"
+    - input: "trap_water([4, 2, 0, 3, 2, 5])"
+      expected: "9"
+
+- id: "code_034"
+  category: "coding"
+  difficulty: "medium"
+  prompt_en: |
+    Given a list of integers and a window size k, return a list of maximums
+    for each sliding window of size k moving from left to right. If the
+    input list has fewer than k elements, return an empty list. k is
+    a positive integer.
+  prompt_ru: |
+    Дан список целых чисел и размер окна k. Верните список максимумов
+    для каждого скользящего окна размером k, двигающегося слева направо.
+    Если в списке меньше k элементов, верните пустой список. k —
+    натуральное число.
+  function_name: "sliding_window_max"
+  function_signature: "def sliding_window_max(nums: list[int], k: int) -> list[int]"
+  test_cases:
+    - input: "sliding_window_max([1, 3, -1, -3, 5, 3, 6, 7], 3)"
+      expected: "[3, 3, 5, 5, 6, 7]"
+    - input: "sliding_window_max([], 3)"
+      expected: "[]"
+    - input: "sliding_window_max([1, 2], 3)"
+      expected: "[]"
+    - input: "sliding_window_max([5], 1)"
+      expected: "[5]"
+    - input: "sliding_window_max([9, 8, 7, 6, 5], 2)"
+      expected: "[9, 8, 7, 6]"
+
+- id: "code_035"
+  category: "coding"
+  difficulty: "medium"
+  prompt_en: |
+    Given a string containing only digits, count the number of ways to decode
+    it into letters, where 'A' = 1, 'B' = 2, ..., 'Z' = 26. A valid decoding
+    maps one or two consecutive digits to a letter. Leading zeros are invalid
+    (e.g., "06" is not a valid mapping). Return the total number of valid
+    decodings. For an empty string, return 0.
+  prompt_ru: |
+    Дана строка, содержащая только цифры. Подсчитайте количество способов
+    декодировать её в буквы, где 'A' = 1, 'B' = 2, ..., 'Z' = 26. Допустимое
+    декодирование сопоставляет одну или две подряд идущие цифры букве. Ведущие
+    нули недопустимы (например, "06" не является корректным сопоставлением).
+    Верните общее число допустимых декодирований. Для пустой строки верните 0.
+  function_name: "count_decodings"
+  function_signature: "def count_decodings(s: str) -> int"
+  test_cases:
+    - input: 'count_decodings("226")'
+      expected: "3"
+    - input: 'count_decodings("")'
+      expected: "0"
+    - input: 'count_decodings("0")'
+      expected: "0"
+    - input: 'count_decodings("12")'
+      expected: "2"
+    - input: 'count_decodings("111111")'
+      expected: "13"
+    - input: 'count_decodings("10")'
+      expected: "1"
+
+# ============================================================================
+# HARD (code_036 – code_050)
+# ============================================================================
+
+- id: "code_036"
+  category: "coding"
+  difficulty: "hard"
+  prompt_en: |
+    Given a list of distinct integers, return all possible permutations
+    in lexicographic order. Each permutation is a list of integers.
+    For an empty list, return a list containing one empty list: [[]].
+  prompt_ru: |
+    Дан список различных целых чисел. Верните все возможные перестановки
+    в лексикографическом порядке. Каждая перестановка — список чисел.
+    Для пустого списка верните список, содержащий один пустой список: [[]].
+  function_name: "all_permutations"
+  function_signature: "def all_permutations(nums: list[int]) -> list[list[int]]"
+  test_cases:
+    - input: "all_permutations([1, 2, 3])"
+      expected: "[[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]]"
+    - input: "all_permutations([])"
+      expected: "[[]]"
+    - input: "all_permutations([5])"
+      expected: "[[5]]"
+    - input: "all_permutations([3, 1])"
+      expected: "[[1, 3], [3, 1]]"
+
+- id: "code_037"
+  category: "coding"
+  difficulty: "hard"
+  prompt_en: |
+    Given a list of non-negative integers representing coin denominations
+    and a target amount, return the minimum number of coins needed to make
+    that amount. If it is not possible, return -1. You have an unlimited
+    supply of each coin denomination.
+  prompt_ru: |
+    Дан список неотрицательных целых чисел, представляющих номиналы монет,
+    и целевая сумма. Верните минимальное количество монет, необходимое для
+    набора этой суммы. Если это невозможно, верните -1. Каждого номинала
+    монет неограниченное количество.
+  function_name: "min_coins"
+  function_signature: "def min_coins(coins: list[int], amount: int) -> int"
+  test_cases:
+    - input: "min_coins([1, 5, 10, 25], 30)"
+      expected: "2"
+    - input: "min_coins([2], 3)"
+      expected: "-1"
+    - input: "min_coins([1], 0)"
+      expected: "0"
+    - input: "min_coins([1, 3, 4], 6)"
+      expected: "2"
+    - input: "min_coins([7, 13], 28)"
+      expected: "4"
+
+- id: "code_038"
+  category: "coding"
+  difficulty: "hard"
+  prompt_en: |
+    Given a 2D grid of '0's and '1's (as strings), count the number of
+    islands. An island is a group of '1's connected horizontally or vertically
+    (not diagonally). The grid edges are all surrounded by water ('0').
+    An empty grid has 0 islands.
+  prompt_ru: |
+    Дана двумерная сетка из символов '0' и '1'. Подсчитайте количество
+    островов. Остров — группа клеток с '1', соединённых горизонтально или
+    вертикально (но не по диагонали). Границы сетки окружены водой ('0').
+    В пустой сетке 0 островов.
+  function_name: "count_islands"
+  function_signature: "def count_islands(grid: list[list[str]]) -> int"
+  test_cases:
+    - input: 'count_islands([["1","1","0","0","0"],["1","1","0","0","0"],["0","0","1","0","0"],["0","0","0","1","1"]])'
+      expected: "3"
+    - input: "count_islands([])"
+      expected: "0"
+    - input: 'count_islands([["0"]])'
+      expected: "0"
+    - input: 'count_islands([["1"]])'
+      expected: "1"
+    - input: 'count_islands([["1","0","1"],["0","1","0"],["1","0","1"]])'
+      expected: "5"
+
+- id: "code_039"
+  category: "coding"
+  difficulty: "hard"
+  prompt_en: |
+    Given a list of integers, find the length of the longest increasing
+    subsequence (LIS). The subsequence does not have to be contiguous,
+    but the elements must be in strictly increasing order. For an empty
+    list, return 0.
+  prompt_ru: |
+    Дан список целых чисел. Найдите длину наибольшей возрастающей
+    подпоследовательности (НВП). Подпоследовательность не обязана быть
+    непрерывной, но элементы должны строго возрастать. Для пустого
+    списка верните 0.
+  function_name: "longest_increasing_subseq"
+  function_signature: "def longest_increasing_subseq(nums: list[int]) -> int"
+  test_cases:
+    - input: "longest_increasing_subseq([10, 9, 2, 5, 3, 7, 101, 18])"
+      expected: "4"
+    - input: "longest_increasing_subseq([])"
+      expected: "0"
+    - input: "longest_increasing_subseq([7, 7, 7, 7])"
+      expected: "1"
+    - input: "longest_increasing_subseq([1, 2, 3, 4, 5])"
+      expected: "5"
+    - input: "longest_increasing_subseq([5, 4, 3, 2, 1])"
+      expected: "1"
+    - input: "longest_increasing_subseq([3, 1, 4, 1, 5, 9, 2, 6])"
+      expected: "4"
+
+- id: "code_040"
+  category: "coding"
+  difficulty: "hard"
+  prompt_en: |
+    Given an adjacency list representation of a directed graph (a dictionary
+    mapping each node to a list of its neighbors), determine whether the
+    graph contains a cycle. Nodes are represented as integers. Every node
+    that appears as a neighbor is guaranteed to be a key in the dictionary.
+  prompt_ru: |
+    Дан ориентированный граф в виде списка смежности (словарь, сопоставляющий
+    каждой вершине список её соседей). Определите, содержит ли граф цикл.
+    Вершины представлены целыми числами. Каждая вершина, фигурирующая как
+    сосед, гарантированно является ключом словаря.
+  function_name: "has_cycle"
+  function_signature: "def has_cycle(graph: dict[int, list[int]]) -> bool"
+  test_cases:
+    - input: "has_cycle({0: [1], 1: [2], 2: [0]})"
+      expected: "True"
+    - input: "has_cycle({0: [1], 1: [2], 2: []})"
+      expected: "False"
+    - input: "has_cycle({0: []})"
+      expected: "False"
+    - input: "has_cycle({0: [1, 2], 1: [3], 2: [3], 3: []})"
+      expected: "False"
+    - input: "has_cycle({0: [1], 1: [2], 2: [3], 3: [1]})"
+      expected: "True"
+
+- id: "code_041"
+  category: "coding"
+  difficulty: "hard"
+  prompt_en: |
+    Given a list of items, each represented as [weight, value], and a
+    maximum capacity, find the maximum total value that can be achieved
+    by selecting items such that their total weight does not exceed the
+    capacity. Each item can be selected at most once (0/1 knapsack).
+    Weights and values are positive integers. Capacity is a non-negative
+    integer.
+  prompt_ru: |
+    Дан список предметов, каждый в формате [вес, ценность], и максимальная
+    вместимость. Найдите наибольшую суммарную ценность, которую можно достичь,
+    выбирая предметы так, чтобы их суммарный вес не превышал вместимость.
+    Каждый предмет можно взять не более одного раза (рюкзак 0/1). Веса и
+    ценности — натуральные числа. Вместимость — неотрицательное целое число.
+  function_name: "knapsack_01"
+  function_signature: "def knapsack_01(items: list[list[int]], capacity: int) -> int"
+  test_cases:
+    - input: "knapsack_01([[2, 3], [3, 4], [4, 5], [5, 6]], 8)"
+      expected: "10"
+    - input: "knapsack_01([], 10)"
+      expected: "0"
+    - input: "knapsack_01([[10, 100]], 5)"
+      expected: "0"
+    - input: "knapsack_01([[1, 1], [1, 1], [1, 1]], 2)"
+      expected: "2"
+    - input: "knapsack_01([[3, 4], [4, 5], [2, 3]], 7)"
+      expected: "9"
+
+- id: "code_042"
+  category: "coding"
+  difficulty: "hard"
+  prompt_en: |
+    Given a string, find the longest palindromic substring. If there are
+    multiple substrings of the same maximum length, return the one that
+    starts earliest. An empty string returns an empty string.
+  prompt_ru: |
+    Дана строка. Найдите самую длинную подстроку-палиндром. Если несколько
+    подстрок имеют одинаковую максимальную длину, верните ту, которая
+    начинается раньше. Для пустой строки верните пустую строку.
+  function_name: "longest_palindrome_substr"
+  function_signature: "def longest_palindrome_substr(s: str) -> str"
+  test_cases:
+    - input: 'longest_palindrome_substr("babad")'
+      expected: '"bab"'
+    - input: 'longest_palindrome_substr("")'
+      expected: '""'
+    - input: 'longest_palindrome_substr("a")'
+      expected: '"a"'
+    - input: 'longest_palindrome_substr("cbbd")'
+      expected: '"bb"'
+    - input: 'longest_palindrome_substr("abcde")'
+      expected: '"a"'
+    - input: 'longest_palindrome_substr("racecarxyz")'
+      expected: '"racecar"'
+
+- id: "code_043"
+  category: "coding"
+  difficulty: "hard"
+  prompt_en: |
+    Given a list of distinct positive integers, find all unique combinations
+    that sum to a target value. Each number may be used unlimited times.
+    Return the combinations sorted: each inner list sorted ascending, and
+    the outer list sorted lexicographically.
+  prompt_ru: |
+    Дан список различных натуральных чисел. Найдите все уникальные комбинации,
+    дающие в сумме целевое значение. Каждое число можно использовать
+    неограниченное число раз. Верните комбинации отсортированными: каждый
+    внутренний список по возрастанию, а внешний — лексикографически.
+  function_name: "combination_sum"
+  function_signature: "def combination_sum(candidates: list[int], target: int) -> list[list[int]]"
+  test_cases:
+    - input: "combination_sum([2, 3, 6, 7], 7)"
+      expected: "[[2, 2, 3], [7]]"
+    - input: "combination_sum([2], 1)"
+      expected: "[]"
+    - input: "combination_sum([1], 3)"
+      expected: "[[1, 1, 1]]"
+    - input: "combination_sum([2, 3, 5], 8)"
+      expected: "[[2, 2, 2, 2], [2, 3, 3], [3, 5]]"
+    - input: "combination_sum([3, 5, 7], 0)"
+      expected: "[[]]"
+
+- id: "code_044"
+  category: "coding"
+  difficulty: "hard"
+  prompt_en: |
+    Given a string containing only '(' and ')', find the length of the
+    longest valid (well-formed) parentheses substring. For example,
+    "(()" has longest valid substring "()" with length 2. ")()())"
+    has longest valid substring "()()" with length 4.
+  prompt_ru: |
+    Дана строка, содержащая только символы '(' и ')'. Найдите длину самой
+    длинной корректно сбалансированной подстроки из скобок. Например,
+    в "(()" самая длинная корректная подстрока "()" имеет длину 2. В ")()())"
+    самая длинная корректная подстрока "()()" имеет длину 4.
+  function_name: "longest_valid_parens"
+  function_signature: "def longest_valid_parens(s: str) -> int"
+  test_cases:
+    - input: 'longest_valid_parens("(()")'
+      expected: "2"
+    - input: 'longest_valid_parens("")'
+      expected: "0"
+    - input: 'longest_valid_parens(")()())")'
+      expected: "4"
+    - input: 'longest_valid_parens("()(())")'
+      expected: "6"
+    - input: 'longest_valid_parens("))))")'
+      expected: "0"
+    - input: 'longest_valid_parens("()()")'
+      expected: "4"
+
+- id: "code_045"
+  category: "coding"
+  difficulty: "hard"
+  prompt_en: |
+    Given a weighted directed graph as an adjacency list (a dictionary
+    mapping each node to a list of [neighbor, weight] pairs) and a source
+    node, compute the shortest distance from the source to every reachable
+    node. Return a dictionary mapping each reachable node to its shortest
+    distance from the source. The source node has distance 0. Unreachable
+    nodes should not appear in the output. All weights are non-negative.
+  prompt_ru: |
+    Дан взвешенный ориентированный граф в виде списка смежности (словарь,
+    сопоставляющий каждой вершине список пар [сосед, вес]) и начальная
+    вершина. Вычислите кратчайшие расстояния от начальной вершины до всех
+    достижимых вершин. Верните словарь, сопоставляющий каждой достижимой
+    вершине кратчайшее расстояние. Расстояние до начальной вершины равно 0.
+    Недостижимые вершины в результат не включаются. Все веса неотрицательные.
+  function_name: "shortest_paths"
+  function_signature: "def shortest_paths(graph: dict[int, list[list[int]]], source: int) -> dict[int, int]"
+  test_cases:
+    - input: "shortest_paths({0: [[1, 4], [2, 1]], 1: [[3, 1]], 2: [[1, 2], [3, 5]], 3: []}, 0)"
+      expected: "{0: 0, 1: 3, 2: 1, 3: 4}"
+    - input: "shortest_paths({0: []}, 0)"
+      expected: "{0: 0}"
+    - input: "shortest_paths({0: [[1, 10]], 1: [], 2: []}, 0)"
+      expected: "{0: 0, 1: 10}"
+    - input: "shortest_paths({0: [[1, 1]], 1: [[2, 1]], 2: [[3, 1]], 3: []}, 0)"
+      expected: "{0: 0, 1: 1, 2: 2, 3: 3}"
+
+- id: "code_046"
+  category: "coding"
+  difficulty: "hard"
+  prompt_en: |
+    Given a list of n integers, find the number of "inversions" in the list.
+    An inversion is a pair (i, j) where i < j but nums[i] > nums[j].
+    Implement an efficient solution (better than O(n^2)).
+  prompt_ru: |
+    Дан список из n целых чисел. Подсчитайте количество «инверсий» в списке.
+    Инверсия — это пара (i, j), где i < j, но nums[i] > nums[j].
+    Реализуйте эффективное решение (лучше O(n^2)).
+  function_name: "count_inversions"
+  function_signature: "def count_inversions(nums: list[int]) -> int"
+  test_cases:
+    - input: "count_inversions([2, 4, 1, 3, 5])"
+      expected: "3"
+    - input: "count_inversions([])"
+      expected: "0"
+    - input: "count_inversions([1, 2, 3, 4, 5])"
+      expected: "0"
+    - input: "count_inversions([5, 4, 3, 2, 1])"
+      expected: "10"
+    - input: "count_inversions([1])"
+      expected: "0"
+    - input: "count_inversions([3, 1, 2])"
+      expected: "2"
+
+- id: "code_047"
+  category: "coding"
+  difficulty: "hard"
+  prompt_en: |
+    Given a list of non-negative integers, arrange them such that they form
+    the largest possible number, and return it as a string. For example,
+    [10, 2] should return "210". Leading zeros should be collapsed — if
+    the result is all zeros, return "0".
+  prompt_ru: |
+    Дан список неотрицательных целых чисел. Расположите их так, чтобы
+    образовать наибольшее возможное число, и верните результат в виде строки.
+    Например, [10, 2] должно вернуть "210". Ведущие нули сворачиваются —
+    если результат состоит только из нулей, верните "0".
+  function_name: "largest_number"
+  function_signature: "def largest_number(nums: list[int]) -> str"
+  test_cases:
+    - input: "largest_number([10, 2])"
+      expected: '"210"'
+    - input: "largest_number([3, 30, 34, 5, 9])"
+      expected: '"9534330"'
+    - input: "largest_number([0, 0])"
+      expected: '"0"'
+    - input: "largest_number([1])"
+      expected: '"1"'
+    - input: "largest_number([0])"
+      expected: '"0"'
+    - input: "largest_number([12, 121])"
+      expected: '"12121"'
+
+- id: "code_048"
+  category: "coding"
+  difficulty: "hard"
+  prompt_en: |
+    Given two strings, find the length of their longest common subsequence
+    (LCS). A subsequence is a sequence that can be derived from a string
+    by deleting some or no characters without changing the order of the
+    remaining characters. For empty strings, return 0.
+  prompt_ru: |
+    Даны две строки. Найдите длину их наибольшей общей подпоследовательности
+    (НОП). Подпоследовательность — последовательность, полученная удалением
+    некоторых (или нуля) символов без изменения порядка оставшихся.
+    Для пустых строк верните 0.
+  function_name: "longest_common_subseq"
+  function_signature: "def longest_common_subseq(s1: str, s2: str) -> int"
+  test_cases:
+    - input: 'longest_common_subseq("abcde", "ace")'
+      expected: "3"
+    - input: 'longest_common_subseq("", "abc")'
+      expected: "0"
+    - input: 'longest_common_subseq("abc", "abc")'
+      expected: "3"
+    - input: 'longest_common_subseq("abc", "def")'
+      expected: "0"
+    - input: 'longest_common_subseq("oxcpqrsvwf", "shmtulqrypy")'
+      expected: "2"
+
+- id: "code_049"
+  category: "coding"
+  difficulty: "hard"
+  prompt_en: |
+    Given a list of tasks represented as [start_time, end_time, profit],
+    find the maximum profit achievable by scheduling non-overlapping tasks.
+    Two tasks overlap if one starts strictly before the other ends. Tasks
+    are non-overlapping if the start time of one is >= the end time of
+    another. All values are non-negative integers.
+  prompt_ru: |
+    Дан список задач в формате [время_начала, время_окончания, прибыль].
+    Найдите максимальную прибыль, которую можно получить, выбирая
+    непересекающиеся задачи. Две задачи пересекаются, если одна начинается
+    строго до окончания другой. Задачи не пересекаются, если время начала
+    одной >= времени окончания другой. Все значения — неотрицательные целые.
+  function_name: "max_scheduling_profit"
+  function_signature: "def max_scheduling_profit(tasks: list[list[int]]) -> int"
+  test_cases:
+    - input: "max_scheduling_profit([[1, 3, 50], [2, 5, 20], [4, 6, 70], [6, 8, 60]])"
+      expected: "180"
+    - input: "max_scheduling_profit([])"
+      expected: "0"
+    - input: "max_scheduling_profit([[0, 10, 100]])"
+      expected: "100"
+    - input: "max_scheduling_profit([[1, 2, 10], [2, 3, 20], [3, 4, 30]])"
+      expected: "60"
+    - input: "max_scheduling_profit([[1, 5, 100], [1, 5, 50], [1, 5, 75]])"
+      expected: "100"
+
+- id: "code_050"
+  category: "coding"
+  difficulty: "hard"
+  prompt_en: |
+    Given a string and a list of words (all the same length), find all
+    starting indices in the string where a concatenation of all the words
+    (each used exactly once, in any order) forms a substring. Return the
+    indices in ascending order. If no such index exists, return an empty list.
+    Words may contain duplicates.
+  prompt_ru: |
+    Дана строка и список слов одинаковой длины. Найдите все начальные индексы
+    в строке, с которых начинается подстрока, являющаяся конкатенацией всех
+    слов (каждое использовано ровно один раз, в любом порядке). Верните
+    индексы в порядке возрастания. Если таких индексов нет, верните пустой
+    список. В списке слов могут быть повторы.
+  function_name: "find_concat_indices"
+  function_signature: "def find_concat_indices(s: str, words: list[str]) -> list[int]"
+  test_cases:
+    - input: 'find_concat_indices("barfoothefoobarman", ["foo", "bar"])'
+      expected: "[0, 9]"
+    - input: 'find_concat_indices("", ["a"])'
+      expected: "[]"
+    - input: 'find_concat_indices("aaa", ["a", "a"])'
+      expected: "[0, 1]"
+    - input: 'find_concat_indices("wordgoodgoodgoodbestword", ["word", "good", "best", "word"])'
+      expected: "[]"
+    - input: 'find_concat_indices("abcabc", ["abc"])'
+      expected: "[0, 3]"

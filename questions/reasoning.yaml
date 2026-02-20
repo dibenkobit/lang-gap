@@ -1,0 +1,903 @@
+# LangBench reasoning questions — 50 questions
+# Distribution: 15 easy, 20 medium, 15 hard
+# Subcategories: math 17, logic 17, analytical 16
+
+# === EASY MATH (reason_001 – reason_005) ===
+
+- id: "reason_001"
+  category: "reasoning"
+  subcategory: "math"
+  difficulty: "easy"
+  prompt_en: |
+    A farmer harvested 84 kg of apples on Monday and 67 kg on Tuesday.
+    He sold 38 kg on Wednesday and another 45 kg on Thursday.
+    How many kilograms of apples does the farmer have left?
+  prompt_ru: |
+    Фермер собрал 84 кг яблок в понедельник и 67 кг во вторник.
+    В среду он продал 38 кг, а в четверг — ещё 45 кг.
+    Сколько килограммов яблок осталось у фермера?
+  expected_answer: "68"
+  tolerance: null
+
+- id: "reason_002"
+  category: "reasoning"
+  subcategory: "math"
+  difficulty: "easy"
+  prompt_en: |
+    A parking lot charges $3 for the first hour and $2 for each
+    additional hour. Maria parked her car for 7 hours.
+    How much does she pay in total?
+  prompt_ru: |
+    На парковке берут 3 доллара за первый час и по 2 доллара
+    за каждый последующий час. Мария оставила машину на 7 часов.
+    Сколько она заплатит?
+  expected_answer: "15"
+  tolerance: null
+
+- id: "reason_003"
+  category: "reasoning"
+  subcategory: "math"
+  difficulty: "easy"
+  prompt_en: |
+    A recipe calls for 250 grams of flour to make 10 cookies.
+    How many grams of flour are needed to make 35 cookies?
+  prompt_ru: |
+    По рецепту на 10 печений нужно 250 граммов муки.
+    Сколько граммов муки потребуется, чтобы испечь 35 печений?
+  expected_answer: "875"
+  tolerance: null
+
+- id: "reason_004"
+  category: "reasoning"
+  subcategory: "math"
+  difficulty: "easy"
+  prompt_en: |
+    A store sells notebooks in packs of 4. Each pack costs $6.
+    Alexei needs 22 notebooks. What is the minimum amount he
+    must spend?
+  prompt_ru: |
+    В магазине тетради продаются упаковками по 4 штуки.
+    Одна упаковка стоит 6 долларов. Алексею нужно 22 тетради.
+    Какую минимальную сумму он должен потратить?
+  expected_answer: "36"
+  tolerance: null
+
+- id: "reason_005"
+  category: "reasoning"
+  subcategory: "math"
+  difficulty: "easy"
+  prompt_en: |
+    A bus travels 54 km in 45 minutes at constant speed.
+    How far will it travel in 2 hours at the same speed?
+    Give your answer in kilometers.
+  prompt_ru: |
+    Автобус проезжает 54 км за 45 минут с постоянной скоростью.
+    Какое расстояние он преодолеет за 2 часа при той же скорости?
+    Ответ дайте в километрах.
+  expected_answer: "144"
+  tolerance: null
+
+# === EASY LOGIC (reason_006 – reason_010) ===
+
+- id: "reason_006"
+  category: "reasoning"
+  subcategory: "logic"
+  difficulty: "easy"
+  prompt_en: |
+    There are three boxes labeled "Apples", "Oranges", and "Mixed".
+    Each label is wrong — no box contains what its label says.
+    You draw one fruit from the box labeled "Mixed" and it is an apple.
+    What does the box labeled "Oranges" actually contain?
+    Answer "apples", "oranges", or "mixed".
+  prompt_ru: |
+    Есть три коробки с надписями «Яблоки», «Апельсины» и «Смесь».
+    Все надписи ошибочны — ни одна коробка не содержит то,
+    что указано на этикетке. Из коробки с надписью «Смесь»
+    достали один фрукт — это оказалось яблоко.
+    Что на самом деле лежит в коробке с надписью «Апельсины»?
+    Ответьте «apples», «oranges» или «mixed».
+  expected_answer: "mixed"
+  tolerance: null
+
+- id: "reason_007"
+  category: "reasoning"
+  subcategory: "logic"
+  difficulty: "easy"
+  prompt_en: |
+    Five students — Anna, Boris, Clara, David, and Eva — sit in a row
+    of five chairs numbered 1 through 5. Anna sits in chair 1.
+    Boris sits in chair 2. Eva sits in chair 5.
+    Clara sits closer to Anna than David does.
+    What is David's chair number?
+  prompt_ru: |
+    Пятеро учеников — Аня, Борис, Клара, Давид и Ева — сидят в ряд
+    на стульях с номерами от 1 до 5. Аня сидит на стуле 1,
+    Борис — на стуле 2, Ева — на стуле 5. Клара сидит ближе
+    к Ане, чем Давид. Какой номер стула у Давида?
+  expected_answer: "4"
+  tolerance: null
+
+- id: "reason_008"
+  category: "reasoning"
+  subcategory: "logic"
+  difficulty: "easy"
+  prompt_en: |
+    In a group of 30 people, 18 speak English, 12 speak French,
+    and 5 speak both English and French. How many people in
+    the group speak neither English nor French?
+  prompt_ru: |
+    В группе из 30 человек 18 говорят по-английски, 12 — по-французски,
+    а 5 владеют обоими языками. Сколько человек в группе
+    не говорят ни на одном из этих двух языков?
+  expected_answer: "5"
+  tolerance: null
+
+- id: "reason_009"
+  category: "reasoning"
+  subcategory: "logic"
+  difficulty: "easy"
+  prompt_en: |
+    Nikolai is older than Svetlana. Svetlana is older than Pavel.
+    Irina is older than Nikolai. Pavel is older than Oleg.
+    Who is the youngest of the five?
+  prompt_ru: |
+    Николай старше Светланы. Светлана старше Павла.
+    Ирина старше Николая. Павел старше Олега.
+    Кто самый младший из пятерых?
+  expected_answer: "Oleg"
+  tolerance: null
+
+- id: "reason_010"
+  category: "reasoning"
+  subcategory: "logic"
+  difficulty: "easy"
+  prompt_en: |
+    A standard deck has 52 cards (4 suits of 13 ranks each).
+    If you draw cards one at a time without replacement, what
+    is the minimum number of cards you must draw to guarantee
+    that you have at least 3 cards of the same suit?
+  prompt_ru: |
+    В стандартной колоде 52 карты (4 масти по 13 карт).
+    Если вытягивать карты по одной без возврата, какое
+    минимальное количество карт нужно вытянуть, чтобы
+    гарантированно получить хотя бы 3 карты одной масти?
+  expected_answer: "9"
+  tolerance: null
+
+# === EASY ANALYTICAL (reason_011 – reason_015) ===
+
+- id: "reason_011"
+  category: "reasoning"
+  subcategory: "analytical"
+  difficulty: "easy"
+  prompt_en: |
+    Consider the sequence: 2, 6, 18, 54, ...
+    What is the next number in the sequence?
+  prompt_ru: |
+    Рассмотрите последовательность: 2, 6, 18, 54, ...
+    Какое число идёт следующим?
+  expected_answer: "162"
+  tolerance: null
+
+- id: "reason_012"
+  category: "reasoning"
+  subcategory: "analytical"
+  difficulty: "easy"
+  prompt_en: |
+    In a survey, 40 people were asked about their favorite fruit.
+    15 chose strawberries, 11 chose bananas, 8 chose grapes,
+    and the rest chose mangoes. How many people chose mangoes?
+  prompt_ru: |
+    В опросе 40 человек назвали свой любимый фрукт.
+    15 выбрали клубнику, 11 — бананы, 8 — виноград,
+    остальные — манго. Сколько человек выбрали манго?
+  expected_answer: "6"
+  tolerance: null
+
+- id: "reason_013"
+  category: "reasoning"
+  subcategory: "analytical"
+  difficulty: "easy"
+  prompt_en: |
+    Consider the sequence: 3, 5, 9, 15, 23, ...
+    What is the next number?
+  prompt_ru: |
+    Дана последовательность: 3, 5, 9, 15, 23, ...
+    Какое число следующее?
+  expected_answer: "33"
+  tolerance: null
+
+- id: "reason_014"
+  category: "reasoning"
+  subcategory: "analytical"
+  difficulty: "easy"
+  prompt_en: |
+    A factory produces 120 items per day. Quality control rejects
+    exactly 5% of items each day. How many items pass quality
+    control over a 5-day work week?
+  prompt_ru: |
+    Фабрика выпускает 120 изделий в день. Контроль качества
+    отбраковывает ровно 5% изделий ежедневно. Сколько изделий
+    проходят контроль качества за 5 рабочих дней?
+  expected_answer: "570"
+  tolerance: null
+
+- id: "reason_015"
+  category: "reasoning"
+  subcategory: "analytical"
+  difficulty: "easy"
+  prompt_en: |
+    A library tracks book checkouts. In January there were 80 checkouts,
+    in February 95, in March 110, and in April 125.
+    If this pattern continues, how many checkouts will there be in June?
+  prompt_ru: |
+    Библиотека ведёт учёт выдач книг. В январе было 80 выдач,
+    в феврале — 95, в марте — 110, в апреле — 125.
+    Если тенденция сохранится, сколько выдач будет в июне?
+  expected_answer: "155"
+  tolerance: null
+
+# === MEDIUM MATH (reason_016 – reason_022) ===
+
+- id: "reason_016"
+  category: "reasoning"
+  subcategory: "math"
+  difficulty: "medium"
+  prompt_en: |
+    A tank is being filled by two pipes. Pipe A fills the tank
+    in 6 hours working alone. Pipe B fills the tank in 9 hours
+    working alone. If both pipes are opened at the same time,
+    how many hours will it take to fill the tank?
+    Give the answer as a decimal.
+  prompt_ru: |
+    Бак наполняется двумя трубами. Труба А наполняет бак
+    за 6 часов, труба Б — за 9 часов (каждая по отдельности).
+    Если открыть обе трубы одновременно, за сколько часов
+    наполнится бак? Ответ дайте в виде десятичной дроби.
+  expected_answer: "3.6"
+  tolerance: null
+
+- id: "reason_017"
+  category: "reasoning"
+  subcategory: "math"
+  difficulty: "medium"
+  prompt_en: |
+    A store has a "buy 2, get the third at half price" promotion,
+    where the cheapest of the three items gets the discount.
+    Dmitry wants to buy items priced at $14, $23, $9, $31, and $17.
+    He can arrange items into groups of three as he wishes, with
+    any leftover items at full price. What is the minimum total
+    he can pay?
+  prompt_ru: |
+    В магазине акция «купи 2 — третий за полцены», скидка
+    применяется к самому дешёвому из трёх товаров. Дмитрий
+    хочет купить товары за 14, 23, 9, 31 и 17 долларов.
+    Он может группировать товары по три как угодно, а оставшиеся
+    оплачивает по полной цене. Какую минимальную сумму он заплатит?
+  expected_answer: "85.5"
+  tolerance: null
+
+- id: "reason_018"
+  category: "reasoning"
+  subcategory: "math"
+  difficulty: "medium"
+  prompt_en: |
+    A cyclist leaves town A heading toward town B at 18 km/h.
+    At the same time, a second cyclist leaves town B heading toward
+    town A at 24 km/h. The towns are 63 km apart. After how many
+    hours will they meet? Give the answer as a decimal.
+  prompt_ru: |
+    Велосипедист выезжает из города А в сторону города Б
+    со скоростью 18 км/ч. Одновременно второй велосипедист
+    выезжает из Б навстречу со скоростью 24 км/ч. Расстояние
+    между городами — 63 км. Через сколько часов они встретятся?
+    Ответ дайте в виде десятичной дроби.
+  expected_answer: "1.5"
+  tolerance: null
+
+- id: "reason_019"
+  category: "reasoning"
+  subcategory: "math"
+  difficulty: "medium"
+  prompt_en: |
+    A rectangular garden is 15 meters long and 8 meters wide.
+    A path of uniform width 1.5 meters runs inside the garden
+    along all four edges. What is the area of the garden that
+    is NOT occupied by the path? Give the answer in square meters.
+  prompt_ru: |
+    Прямоугольный сад имеет длину 15 метров и ширину 8 метров.
+    Внутри сада вдоль всех четырёх сторон проложена дорожка
+    одинаковой ширины 1,5 метра. Какова площадь сада,
+    не занятая дорожкой? Ответ дайте в квадратных метрах.
+  expected_answer: "60"
+  tolerance: null
+
+- id: "reason_020"
+  category: "reasoning"
+  subcategory: "math"
+  difficulty: "medium"
+  prompt_en: |
+    Elena invested $4000 at an annual simple interest rate of 7%.
+    After how many full years will her total balance first exceed $5000?
+  prompt_ru: |
+    Елена вложила 4000 долларов под 7% годовых (простые проценты).
+    Через сколько полных лет её общая сумма впервые превысит
+    5000 долларов?
+  expected_answer: "4"
+  tolerance: null
+
+- id: "reason_021"
+  category: "reasoning"
+  subcategory: "math"
+  difficulty: "medium"
+  prompt_en: |
+    A mixture contains water and juice in the ratio 3:7. If 4 liters
+    of water are added to 20 liters of this mixture, what is the
+    new ratio of water to juice? Express your answer as a fraction
+    in lowest terms, formatted as "a/b".
+  prompt_ru: |
+    Смесь содержит воду и сок в соотношении 3:7. К 20 литрам
+    этой смеси добавили 4 литра воды. Каково новое соотношение
+    воды к соку? Ответ запишите в виде несократимой дроби «a/b».
+  expected_answer: "5/7"
+  tolerance: null
+
+- id: "reason_022"
+  category: "reasoning"
+  subcategory: "math"
+  difficulty: "medium"
+  prompt_en: |
+    A shop owner buys T-shirts at $12 each and sells them at $19 each.
+    Monthly rent and expenses total $840. How many T-shirts must
+    be sold in a month to earn a profit of at least $350?
+  prompt_ru: |
+    Владелец магазина закупает футболки по 12 долларов за штуку
+    и продаёт по 19 долларов. Ежемесячная аренда и расходы
+    составляют 840 долларов. Сколько футболок нужно продать
+    за месяц, чтобы прибыль составила не менее 350 долларов?
+  expected_answer: "170"
+  tolerance: null
+
+# === MEDIUM LOGIC (reason_023 – reason_029) ===
+
+- id: "reason_023"
+  category: "reasoning"
+  subcategory: "logic"
+  difficulty: "medium"
+  prompt_en: |
+    Four friends — Alice, Ben, Carla, and Dan — each have a different
+    favorite color: red, blue, green, yellow. Carla's favorite is yellow.
+    Alice's favorite is not red and not yellow. Dan's favorite is blue.
+    What is Ben's favorite color?
+  prompt_ru: |
+    У четверых друзей — Алисы, Бориса, Карины и Данилы — разные
+    любимые цвета: красный, синий, зелёный, жёлтый. Любимый цвет
+    Карины — жёлтый. Алиса не любит красный и не любит жёлтый.
+    Любимый цвет Данилы — синий. Какой любимый цвет Бориса?
+  expected_answer: "red"
+  tolerance: null
+
+- id: "reason_024"
+  category: "reasoning"
+  subcategory: "logic"
+  difficulty: "medium"
+  prompt_en: |
+    In a group of people, everyone is either a truth-teller (always
+    tells the truth) or a liar (always lies). Person A says: "Both B
+    and I are truth-tellers." Person B says: "A is a liar."
+    How many truth-tellers are there among A and B?
+  prompt_ru: |
+    В группе людей каждый — либо правдолюб (всегда говорит правду),
+    либо лжец (всегда лжёт). Персона А заявляет: «И я, и Б —
+    правдолюбы». Персона Б заявляет: «А — лжец».
+    Сколько правдолюбов среди А и Б?
+  expected_answer: "1"
+  tolerance: null
+
+- id: "reason_025"
+  category: "reasoning"
+  subcategory: "logic"
+  difficulty: "medium"
+  prompt_en: |
+    Five houses in a row are painted different colors: red, green,
+    blue, white, and yellow, from left to right in some order.
+    The red house is immediately to the left of the green house.
+    The blue house is in one of the two rightmost positions.
+    The yellow house is not adjacent to the blue house.
+    The white house is in position 1 (leftmost).
+    What position is the yellow house in?
+  prompt_ru: |
+    Пять домов в ряд покрашены в разные цвета: красный, зелёный,
+    синий, белый и жёлтый (позиции 1–5 слева направо).
+    Красный дом стоит непосредственно левее зелёного. Синий дом
+    занимает одну из двух крайних правых позиций. Жёлтый дом
+    не соседствует с синим. Белый дом стоит на позиции 1.
+    На какой позиции стоит жёлтый дом?
+  expected_answer: "2"
+  tolerance: null
+
+- id: "reason_026"
+  category: "reasoning"
+  subcategory: "logic"
+  difficulty: "medium"
+  prompt_en: |
+    Three people — Sam, Tina, and Uma — each wear a different colored
+    hat: red, blue, or green. Each makes one statement:
+    Sam: "My hat is not red."
+    Tina: "My hat is not blue."
+    Uma: "My hat is not red."
+    Exactly one of them is lying. What color is Tina's hat?
+    Answer with just the color.
+  prompt_ru: |
+    Трое — Семён, Таня и Ульяна — носят шляпы разных цветов:
+    красную, синюю и зелёную. Каждый делает одно утверждение:
+    Семён: «Моя шляпа не красная».
+    Таня: «Моя шляпа не синяя».
+    Ульяна: «Моя шляпа не красная».
+    Ровно один из них врёт. Какого цвета шляпа у Тани?
+    В ответе укажите только цвет.
+  expected_answer: "green"
+  tolerance: null
+
+- id: "reason_027"
+  category: "reasoning"
+  subcategory: "logic"
+  difficulty: "medium"
+  prompt_en: |
+    A clock loses exactly 3 minutes every hour. At noon it is set
+    to the correct time. What will the clock display when the
+    actual time is 4:00 PM on the same day? Give the answer
+    in the format H:MM.
+  prompt_ru: |
+    Часы отстают ровно на 3 минуты каждый час. В полдень
+    их установили на точное время. Что покажут часы, когда
+    реальное время будет 16:00 того же дня? Ответ дайте
+    в формате Ч:ММ.
+  expected_answer: "3:48"
+  tolerance: null
+
+- id: "reason_028"
+  category: "reasoning"
+  subcategory: "logic"
+  difficulty: "medium"
+  prompt_en: |
+    In a tournament, 6 teams play each other exactly once. A win
+    gives 3 points, a draw gives 1 point to each team, and a loss
+    gives 0 points. How many total games are played in the tournament?
+  prompt_ru: |
+    В турнире 6 команд играют друг с другом ровно по одному разу.
+    За победу начисляется 3 очка, за ничью — 1 очко каждой команде,
+    за поражение — 0 очков. Сколько всего матчей проводится
+    в турнире?
+  expected_answer: "15"
+  tolerance: null
+
+- id: "reason_029"
+  category: "reasoning"
+  subcategory: "logic"
+  difficulty: "medium"
+  prompt_en: |
+    Four runners finished a race. The following is known:
+    - Pavel finished before Galina.
+    - Viktor did not finish first or last.
+    - Olga finished immediately after Viktor.
+    - Galina finished last.
+    In what place did Pavel finish?
+  prompt_ru: |
+    Четверо бегунов завершили забег. Известно следующее:
+    — Павел финишировал раньше Галины.
+    — Виктор не занял ни первое, ни последнее место.
+    — Ольга финишировала сразу после Виктора.
+    — Галина пришла последней.
+    Какое место занял Павел?
+  expected_answer: "1"
+  tolerance: null
+
+# === MEDIUM ANALYTICAL (reason_030 – reason_035) ===
+
+- id: "reason_030"
+  category: "reasoning"
+  subcategory: "analytical"
+  difficulty: "medium"
+  prompt_en: |
+    Consider the Fibonacci-like sequence: 1, 1, 2, 3, 5, 8, 13, 21, ...
+    What is the sum of the first 10 terms of this sequence?
+  prompt_ru: |
+    Рассмотрите последовательность Фибоначчи: 1, 1, 2, 3, 5, 8, 13, 21, ...
+    Чему равна сумма первых 10 членов этой последовательности?
+  expected_answer: "143"
+  tolerance: null
+
+- id: "reason_031"
+  category: "reasoning"
+  subcategory: "analytical"
+  difficulty: "medium"
+  prompt_en: |
+    A company's quarterly revenue for last year was:
+    Q1: $340,000, Q2: $410,000, Q3: $385,000, Q4: $465,000.
+    What was the average quarterly revenue? Give the answer as
+    a whole number of dollars.
+  prompt_ru: |
+    Квартальная выручка компании за прошлый год:
+    Q1: 340 000, Q2: 410 000, Q3: 385 000, Q4: 465 000 долларов.
+    Какова средняя квартальная выручка? Ответ дайте целым числом
+    в долларах.
+  expected_answer: "400000"
+  tolerance: null
+
+- id: "reason_032"
+  category: "reasoning"
+  subcategory: "analytical"
+  difficulty: "medium"
+  prompt_en: |
+    Consider the sequence: 2, 5, 11, 23, 47, ...
+    Each term is obtained by doubling the previous term and adding 1.
+    What is the 8th term of this sequence?
+  prompt_ru: |
+    Дана последовательность: 2, 5, 11, 23, 47, ...
+    Каждый член получается удвоением предыдущего с прибавлением 1.
+    Чему равен 8-й член последовательности?
+  expected_answer: "383"
+  tolerance: null
+
+- id: "reason_033"
+  category: "reasoning"
+  subcategory: "analytical"
+  difficulty: "medium"
+  prompt_en: |
+    In a class of 45 students, each studies at least one of three
+    subjects: physics, chemistry, biology. 20 study physics,
+    25 study chemistry, 20 study biology. 8 study both physics
+    and chemistry, 6 study both physics and biology, 9 study both
+    chemistry and biology, and 3 study all three. How many students
+    study exactly one subject?
+  prompt_ru: |
+    В классе из 45 учеников каждый изучает хотя бы один из трёх
+    предметов: физику, химию, биологию. Физику изучают 20,
+    химию — 25, биологию — 20. Физику и химию — 8, физику
+    и биологию — 6, химию и биологию — 9, все три — 3.
+    Сколько учеников изучают ровно один предмет?
+  expected_answer: "28"
+  tolerance: null
+
+- id: "reason_034"
+  category: "reasoning"
+  subcategory: "analytical"
+  difficulty: "medium"
+  prompt_en: |
+    A warehouse tracks daily shipments. Over 7 days, shipments were:
+    Mon: 124, Tue: 138, Wed: 115, Thu: 142, Fri: 131, Sat: 97, Sun: 83.
+    What is the median number of daily shipments?
+  prompt_ru: |
+    Склад отслеживает ежедневные отгрузки. За 7 дней объёмы были:
+    Пн: 124, Вт: 138, Ср: 115, Чт: 142, Пт: 131, Сб: 97, Вс: 83.
+    Чему равна медиана ежедневных отгрузок?
+  expected_answer: "124"
+  tolerance: null
+
+- id: "reason_035"
+  category: "reasoning"
+  subcategory: "analytical"
+  difficulty: "medium"
+  prompt_en: |
+    Consider the sequence where each term is the sum of the digits
+    of the previous term multiplied by 3, starting with 81.
+    So: 81, then (8+1)*3 = 27, then (2+7)*3 = 27, ...
+    After how many steps does the sequence first reach a value
+    that has already appeared? Count the starting value 81 as step 0.
+  prompt_ru: |
+    Рассмотрите последовательность, в которой каждый следующий член
+    равен сумме цифр предыдущего, умноженной на 3. Начало: 81.
+    Получаем: 81, затем (8+1)×3 = 27, затем (2+7)×3 = 27, ...
+    На каком шаге последовательность впервые достигнет значения,
+    которое уже встречалось? Начальное значение 81 — шаг 0.
+  expected_answer: "2"
+  tolerance: null
+
+# === HARD MATH (reason_036 – reason_040) ===
+
+- id: "reason_036"
+  category: "reasoning"
+  subcategory: "math"
+  difficulty: "hard"
+  prompt_en: |
+    A chemist has two solutions. Solution A is 30% acid and Solution B
+    is 75% acid. She needs to create exactly 600 mL of a 52% acid
+    mixture. How many milliliters of Solution A should she use?
+    Give the answer rounded to two decimal places.
+  prompt_ru: |
+    У химика есть два раствора. Раствор А содержит 30% кислоты,
+    раствор Б — 75%. Нужно получить ровно 600 мл смеси
+    с концентрацией кислоты 52%. Сколько миллилитров раствора А
+    следует взять? Ответ округлите до двух знаков после запятой.
+  expected_answer: "306.67"
+  tolerance: 0.01
+
+- id: "reason_037"
+  category: "reasoning"
+  subcategory: "math"
+  difficulty: "hard"
+  prompt_en: |
+    A conference has 12 participants sitting around a round table.
+    In how many ways can 3 participants be chosen such that no two
+    of the chosen participants sit next to each other?
+  prompt_ru: |
+    На конференции 12 участников сидят за круглым столом.
+    Сколькими способами можно выбрать 3 участников так, чтобы
+    никакие двое из выбранных не сидели рядом?
+  expected_answer: "112"
+  tolerance: null
+
+- id: "reason_038"
+  category: "reasoning"
+  subcategory: "math"
+  difficulty: "hard"
+  prompt_en: |
+    A store runs a promotion: "Spend over $100, get 15% off the
+    amount exceeding $100." Nikolai buys items totaling $184 before
+    any discount. He also has a coupon that gives $10 off the final
+    price (applied after the store discount). However, the final
+    price cannot go below $100. How much does Nikolai actually pay?
+  prompt_ru: |
+    В магазине акция: «При покупке свыше 100 долларов — скидка 15%
+    на сумму, превышающую 100 долларов». Николай набрал товаров
+    на 184 доллара до скидки. У него также есть купон на 10 долларов
+    от итоговой стоимости (применяется после скидки магазина).
+    При этом итоговая цена не может быть ниже 100 долларов.
+    Сколько Николай заплатит в итоге?
+  expected_answer: "161.4"
+  tolerance: 0.01
+
+- id: "reason_039"
+  category: "reasoning"
+  subcategory: "math"
+  difficulty: "hard"
+  prompt_en: |
+    A group of 8 friends goes to a restaurant. They want to split
+    into exactly 2 non-empty tables. How many ways can they do
+    this if the two tables are distinguishable (e.g., table by the
+    window vs. table by the door)?
+  prompt_ru: |
+    Компания из 8 друзей пришла в ресторан. Они хотят разделиться
+    на ровно 2 непустых стола. Сколькими способами это можно сделать,
+    если столы различимы (например, у окна и у двери)?
+  expected_answer: "254"
+  tolerance: null
+
+- id: "reason_040"
+  category: "reasoning"
+  subcategory: "math"
+  difficulty: "hard"
+  prompt_en: |
+    Two trains depart from the same station at the same time,
+    traveling in the same direction. Train A travels at 80 km/h
+    and Train B at 110 km/h. After 45 minutes, Train B makes
+    an unscheduled stop for 20 minutes, then resumes at 110 km/h.
+    How many minutes after departure does Train B catch up
+    to Train A again? Give the answer as a decimal rounded to
+    two decimal places.
+  prompt_ru: |
+    Два поезда отправляются с одной станции одновременно в одном
+    направлении. Поезд А едет со скоростью 80 км/ч, поезд Б —
+    110 км/ч. Через 45 минут поезд Б делает внеплановую остановку
+    на 20 минут, после чего продолжает движение со скоростью
+    110 км/ч. Через сколько минут после отправления поезд Б
+    снова поравняется с поездом А? Ответ дайте в виде десятичной
+    дроби, округлённой до двух знаков.
+  expected_answer: "73.33"
+  tolerance: 0.01
+
+# === HARD LOGIC (reason_041 – reason_045) ===
+
+- id: "reason_041"
+  category: "reasoning"
+  subcategory: "logic"
+  difficulty: "hard"
+  prompt_en: |
+    Five colleagues — Andrei, Boris, Viktor, Galina, and Diana —
+    each work on a different floor of a 5-story building (floors 1–5).
+    - Andrei works on a higher floor than Boris.
+    - Viktor works on an even-numbered floor.
+    - Galina works exactly two floors above Diana.
+    - Boris does not work on floor 1.
+    - Boris works on a higher floor than Viktor.
+    What floor does Viktor work on?
+  prompt_ru: |
+    Пятеро коллег — Андрей, Борис, Виктор, Галина и Диана —
+    работают на разных этажах пятиэтажного здания (этажи 1–5).
+    — Андрей работает выше Бориса.
+    — Виктор работает на чётном этаже.
+    — Галина работает ровно на два этажа выше Дианы.
+    — Борис работает не на первом этаже.
+    — Борис работает выше Виктора.
+    На каком этаже работает Виктор?
+  expected_answer: "2"
+  tolerance: null
+
+- id: "reason_042"
+  category: "reasoning"
+  subcategory: "logic"
+  difficulty: "hard"
+  prompt_en: |
+    On an island, each inhabitant is either a knight (always tells
+    the truth) or a knave (always lies). You meet three inhabitants:
+    A, B, and C.
+    A says: "All three of us are knaves."
+    B says: "Exactly one of us is a knight."
+    How many knights are there among A, B, and C?
+  prompt_ru: |
+    На острове каждый житель — либо рыцарь (всегда говорит правду),
+    либо лжец (всегда лжёт). Вы встречаете троих: А, Б и В.
+    А говорит: «Все трое мы — лжецы».
+    Б говорит: «Ровно один из нас — рыцарь».
+    Сколько рыцарей среди А, Б и В?
+  expected_answer: "1"
+  tolerance: null
+
+- id: "reason_043"
+  category: "reasoning"
+  subcategory: "logic"
+  difficulty: "hard"
+  prompt_en: |
+    Six meetings (A through F) must be scheduled in six one-hour
+    time slots (1 through 6), one meeting per slot. Constraints:
+    - Meeting A must be before Meeting B.
+    - Meeting C must be in slot 1 or slot 2.
+    - Meeting D must be immediately after Meeting C.
+    - Meeting E must be before Meeting F.
+    How many valid schedules are there?
+  prompt_ru: |
+    Шесть совещаний (А–Е) нужно назначить на шесть часовых
+    слотов (1–6), по одному совещанию на слот. Ограничения:
+    — Совещание А раньше совещания Б.
+    — Совещание В — в слоте 1 или 2.
+    — Совещание Г — сразу после совещания В.
+    — Совещание Д раньше совещания Е.
+    Сколько допустимых расписаний существует?
+  expected_answer: "12"
+  tolerance: null
+
+- id: "reason_044"
+  category: "reasoning"
+  subcategory: "logic"
+  difficulty: "hard"
+  prompt_en: |
+    You have a standard 8x8 chessboard. You remove two diagonally
+    opposite corner squares (top-left and bottom-right). Can the
+    remaining 62 squares be perfectly covered by 31 dominoes, where
+    each domino covers exactly two adjacent squares? Answer "yes"
+    or "no".
+  prompt_ru: |
+    На стандартной шахматной доске 8x8 удалены два диагонально
+    противоположных угловых клетки (верхний левый и нижний правый
+    углы). Можно ли оставшиеся 62 клетки полностью покрыть
+    31 костяшкой домино, где каждая костяшка покрывает ровно
+    две соседние клетки? Ответьте «yes» или «no».
+  expected_answer: "no"
+  tolerance: null
+
+- id: "reason_045"
+  category: "reasoning"
+  subcategory: "logic"
+  difficulty: "hard"
+  prompt_en: |
+    There are 100 lockers in a row, all initially closed. 100 students
+    walk by. Student 1 toggles every locker. Student 2 toggles every
+    2nd locker (lockers 2, 4, 6, ...). Student 3 toggles every 3rd
+    locker (3, 6, 9, ...), and so on, up to Student 100 who toggles
+    only locker 100. After all students have passed, how many lockers
+    are open?
+  prompt_ru: |
+    В ряд стоят 100 шкафчиков, все изначально закрыты. 100 учеников
+    проходят мимо. Первый ученик переключает каждый шкафчик.
+    Второй — каждый второй (2, 4, 6, ...). Третий — каждый третий
+    (3, 6, 9, ...), и так далее до сотого ученика, который
+    переключает только шкафчик 100. Сколько шкафчиков останутся
+    открытыми после прохода всех учеников?
+  expected_answer: "10"
+  tolerance: null
+
+# === HARD ANALYTICAL (reason_046 – reason_050) ===
+
+- id: "reason_046"
+  category: "reasoning"
+  subcategory: "analytical"
+  difficulty: "hard"
+  prompt_en: |
+    Consider the sequence where the n-th term is defined as:
+    a(1) = 5, and for n > 1, a(n) = 2*a(n-1) - 3.
+    What is a(8)?
+  prompt_ru: |
+    Рассмотрите последовательность, в которой первый член a(1) = 5,
+    а каждый следующий определяется как a(n) = 2*a(n-1) - 3.
+    Чему равен a(8)?
+  expected_answer: "259"
+  tolerance: null
+
+- id: "reason_047"
+  category: "reasoning"
+  subcategory: "analytical"
+  difficulty: "hard"
+  prompt_en: |
+    A city has 5 districts. The population of each district in
+    thousands is: A=42, B=67, C=35, D=91, E=55. The city council
+    allocates 15 seats proportionally using the largest remainder
+    method (Hamilton's method). How many seats does district D get?
+  prompt_ru: |
+    В городе 5 районов. Население каждого (в тысячах): А=42, Б=67,
+    В=35, Г=91, Д=55. Городской совет распределяет 15 мест
+    пропорционально методом наибольших остатков (метод Гамильтона).
+    Сколько мест получит район Г?
+  expected_answer: "5"
+  tolerance: null
+
+- id: "reason_048"
+  category: "reasoning"
+  subcategory: "analytical"
+  difficulty: "hard"
+  prompt_en: |
+    A company tracks monthly sales growth. In January, sales were
+    $200,000. Each subsequent month, sales grew by a percentage
+    that itself increased by 2 percentage points each month: January
+    to February growth was 4%, February to March was 6%, March to
+    April was 8%, and so on. What were the sales in May, rounded
+    to the nearest whole dollar?
+  prompt_ru: |
+    Компания отслеживает ежемесячный рост продаж. В январе продажи
+    составили 200 000 долларов. Каждый следующий месяц продажи
+    росли на процент, который сам увеличивался на 2 процентных
+    пункта: рост с января по февраль — 4%, с февраля по март — 6%,
+    с марта по апрель — 8%, и так далее. Каковы продажи в мае
+    с округлением до целого доллара?
+  expected_answer: "261930"
+  tolerance: 1.0
+
+- id: "reason_049"
+  category: "reasoning"
+  subcategory: "analytical"
+  difficulty: "hard"
+  prompt_en: |
+    Consider a number triangle where the n-th row contains the
+    integers from (n*(n-1)/2 + 1) to (n*(n+1)/2), left to right:
+    Row 1: 1
+    Row 2: 2, 3
+    Row 3: 4, 5, 6
+    Row 4: 7, 8, 9, 10
+    ...
+    What is the sum of all numbers in row 9?
+  prompt_ru: |
+    Рассмотрите числовой треугольник, в котором n-я строка содержит
+    целые числа от (n*(n-1)/2 + 1) до (n*(n+1)/2) слева направо:
+    Строка 1: 1
+    Строка 2: 2, 3
+    Строка 3: 4, 5, 6
+    Строка 4: 7, 8, 9, 10
+    ...
+    Чему равна сумма всех чисел в 9-й строке?
+  expected_answer: "369"
+  tolerance: null
+
+- id: "reason_050"
+  category: "reasoning"
+  subcategory: "analytical"
+  difficulty: "hard"
+  prompt_en: |
+    A researcher collects data over 10 days. The values are:
+    12, 15, 11, 18, 14, 22, 13, 19, 16, 20.
+    She computes the "running maximum" — for each position, the
+    maximum of all values from day 1 up to and including that day.
+    How many times does the running maximum change (i.e., how many
+    days set a new maximum that is strictly greater than all
+    previous values)? Count day 1 as the first time a maximum
+    is established.
+  prompt_ru: |
+    Исследователь собирает данные 10 дней. Значения:
+    12, 15, 11, 18, 14, 22, 13, 19, 16, 20.
+    Она вычисляет «текущий максимум» — для каждого дня максимум
+    всех значений с первого дня по текущий включительно. Сколько
+    раз текущий максимум изменяется (т. е. сколько дней
+    устанавливают новый максимум, строго превышающий все
+    предыдущие значения)? День 1 считается первым установлением
+    максимума.
+  expected_answer: "4"
+  tolerance: null
