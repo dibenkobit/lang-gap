@@ -65,11 +65,14 @@ def print_report(run: RunResults) -> None:
     for model in run.models:
         mr = by_model[model]
 
+        _PREFIX = {"coding": "code_", "reasoning": "reason_"}
+
         def _cat(cat: str, lang: str):
+            prefix = _PREFIX[cat]
             return _accuracy(
                 mr,
-                lambda r, c=cat, la=lang: r.language == la
-                and r.question_id.startswith(c[:4]),
+                lambda r, p=prefix, la=lang: r.language == la
+                and r.question_id.startswith(p),
             )
 
         en_code = _cat("coding", "en")
