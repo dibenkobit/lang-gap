@@ -13,7 +13,6 @@ from lang_gap.config import (
     MAX_RETRIES,
     OPENROUTER_API_KEY,
     OPENROUTER_BASE_URL,
-    REQUEST_TIMEOUT_S,
 )
 
 
@@ -44,7 +43,7 @@ class OpenRouterClient:
                     "X-Title": "LangBench",
                     "Content-Type": "application/json",
                 },
-                timeout=REQUEST_TIMEOUT_S,
+                timeout=httpx.Timeout(connect=10.0, read=120.0, write=10.0, pool=10.0),
             )
         return self._client
 
