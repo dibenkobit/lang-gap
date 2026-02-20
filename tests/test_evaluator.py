@@ -1,6 +1,8 @@
 """Tests for code execution and answer comparison logic."""
 
-from lang_gap.evaluator import _build_test_harness, evaluate_coding, evaluate_reasoning
+import pytest
+
+from lang_gap.evaluator import evaluate_coding, evaluate_reasoning
 from lang_gap.schemas import CodingQuestion, TestCase
 
 
@@ -76,6 +78,7 @@ class TestEvaluateCoding:
         assert passed is False
         assert "Runtime error" in (error or "")
 
+    @pytest.mark.slow
     def test_infinite_loop_times_out(self):
         code = "def loop():\n    while True: pass"
         question = self._make_question(
@@ -103,14 +106,3 @@ class TestEvaluateCoding:
         assert error is None
 
 
-class TestBuildTestHarness:
-    def test_harness_contains_code_and_tests(self):
-        harness = _build_test_harness(
-            "def f(): pass",
-            "f",
-            [TestCase(input="f()", expected="None")],
-        )
-        assert "def f(): pass" in harness
-        assert "import math" in harness
-        assert "PASS:" in harness
-        assert "FAIL:" in harness

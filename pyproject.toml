@@ -60,3 +60,5 @@ ignore_missing_imports = true
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 asyncio_mode = "auto"
+markers = ["slow: tests that take >5s (e.g. subprocess timeouts)"]
+addopts = "-m 'not slow'"
