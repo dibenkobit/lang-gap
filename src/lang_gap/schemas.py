@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import Literal, Union
 
 from pydantic import BaseModel
 
@@ -34,7 +34,7 @@ class ReasoningQuestion(BaseModel):
     tolerance: float | None = None
 
 
-Question = CodingQuestion | ReasoningQuestion
+Question = Union[CodingQuestion, ReasoningQuestion]
 
 
 class EvalResult(BaseModel):
