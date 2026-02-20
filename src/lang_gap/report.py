@@ -1,6 +1,7 @@
 """Generate comparison tables for terminal and markdown output."""
 
 from collections import defaultdict
+from collections.abc import Callable
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -8,7 +9,7 @@ from rich.console import Console
 from rich.table import Table
 from rich.text import Text
 
-from lang_gap.schemas import RunResults
+from lang_gap.schemas import EvalResult, RunResults
 
 console = Console()
 REPORTS_DIR = Path(__file__).resolve().parent.parent.parent / "reports"
@@ -31,8 +32,10 @@ class Score:
         return f"{self.pct * 100:.0f}% ({self.correct}/{self.total})"
 
 
-
-def _score(results: list, predicate=None) -> Score:
+def _score(
+    results: list[EvalResult],
+    predicate: Callable[[EvalResult], bool] | None = None,
+) -> Score:
     filtered = [r for r in results if predicate is None or predicate(r)]
     correct = sum(1 for r in filtered if r.correct)
     return Score(correct=correct, total=len(filtered))
@@ -59,7 +62,7 @@ def _delta_str(en: Score, ru: Score) -> str:
     return f"{sign}{d:.0f}%"
 
 
-def _model_scores(model_results: list) -> dict:
+def _model_scores(model_results: list[EvalResult]) -> dict[tuple[str, str], Score]:
     """Compute all scores for a single model."""
     s = {}
     for cat in ("coding", "reasoning"):
@@ -81,7 +84,7 @@ def print_report(run: RunResults) -> None:
     """Print rich tables to terminal and save markdown report."""
     results = run.results
 
-    by_model: dict[str, list] = defaultdict(list)
+    by_model: dict[str, list[EvalResult]] = defaultdict(list)
     for r in results:
         by_model[r.model].append(r)
 
