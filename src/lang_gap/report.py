@@ -104,13 +104,6 @@ def print_report(run: RunResults) -> None:
     )
     console.print()
 
-    # ── Main table ──
-    table = Table(show_lines=True, pad_edge=True, expand=False)
-    table.add_column("Model", style="bold", min_width=18)
-    table.add_column("EN", justify="right")
-    table.add_column("RU", justify="right")
-    table.add_column("Δ", justify="center")
-
     # Show category subtotals in column headers
     sections = []
     if n_coding > 0:

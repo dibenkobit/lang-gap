@@ -9,7 +9,7 @@ import tempfile
 import textwrap
 from pathlib import Path
 
-from lang_gap.schemas import CodingQuestion, ReasoningQuestion, TestCase
+from lang_gap.schemas import CodingQuestion, TestCase
 
 
 def evaluate_coding(code: str, question: CodingQuestion) -> tuple[bool, str | None]:
