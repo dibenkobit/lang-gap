@@ -73,6 +73,9 @@ class OpenRouterClient:
                 latency_ms = int((time.monotonic() - t0) * 1000)
 
                 if resp.status_code == 429 or resp.status_code >= 500:
+                    last_error = RuntimeError(
+                        f"HTTP {resp.status_code}: {resp.text[:200]}"
+                    )
                     wait = 2 ** (attempt + 1)
                     await asyncio.sleep(wait)
                     continue
