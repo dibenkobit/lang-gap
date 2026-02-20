@@ -1,49 +1,67 @@
 # lang-gap
 
-Sends the same questions to LLMs in English and Russian, compares accuracy. The gap tells you how much a model degrades in Russian.
+**Do LLMs get dumber when you speak Russian?**
 
-100 original questions (50 coding, 50 reasoning). No recycled benchmarks — everything written from scratch to avoid contamination.
+This benchmark measures exactly that. Same questions, same models, English vs Russian. The accuracy delta tells you how much each model degrades in a non-English language.
+
+```
+Model               EN        RU        Δ
+──────────────────────────────────────────────
+Claude Opus 4.6     94%       91%       −3%
+GPT-4.1             88%       79%       −9%
+DeepSeek R1         86%       83%       −3%
+```
+<sup>Illustrative — run the benchmark to get real numbers for your models.</sup>
+
+100 original questions (50 coding, 50 reasoning), written from scratch. No recycled benchmarks, zero contamination risk.
+
+## Quickstart
+
+```bash
+cp .env.example .env          # add your OpenRouter API key
+pip install -e .
+python -m lang_gap --dry-run  # validate setup, no API calls
+python -m lang_gap --models gpt-4.1 --limit 5  # test run (~$0.50)
+python -m lang_gap            # full run, all models (~$25-35)
+```
 
 ## How it works
 
-1. Load questions from `questions/*.yaml` (each has `prompt_en` + `prompt_ru`)
-2. Send each prompt to each model via OpenRouter (temperature=0)
-3. For coding: extract code, run against test cases in a sandbox
-4. For reasoning: extract `ANSWER:` from response, compare to expected
-5. Print a table showing EN accuracy, RU accuracy, and the delta
-
-## Run it
-
 ```
-cp .env.example .env        # put your OpenRouter key there
-pip install -e .             # install deps
-python -m lang_gap --dry-run # check everything loads, no API calls
-python -m lang_gap --models gpt-4.1 --limit 5  # cheap test run
-python -m lang_gap           # full run, all models, ~$25-35
+questions/*.yaml → OpenRouter API → extract answer → evaluate → report
+  (EN + RU)        (temperature=0)   (code/ANSWER:)   (sandbox/compare)
 ```
 
-## Models
-
-Edit `src/lang_gap/config.py` to add/remove. Currently:
-
-Claude Opus 4.6, Claude Sonnet 4.6, GPT-5.2, GPT-4.1, Gemini 2.5 Pro, DeepSeek R1
-
-## Output
-
-`results/` — raw JSON (one file per run, gitignored)
-`reports/` — markdown tables like:
-
-```
-Model           | EN    | RU    | Δ
-Claude Opus 4.6 | 90%   | 87%   | -3%
-GPT-4.1         | 85%   | 78%   | -7%
-```
-
-Plus a list of specific questions where EN passed but RU failed.
+1. Load paired questions from `questions/*.yaml` — each has `prompt_en` + `prompt_ru`
+2. Send every prompt to every model via [OpenRouter](https://openrouter.ai) (temperature=0 for reproducibility)
+3. **Coding**: extract code from response, run against test cases in a sandbox
+4. **Reasoning**: extract `ANSWER:` tag, compare to expected value
+5. Generate a report with EN accuracy, RU accuracy, and the gap
 
 ## Questions
 
-`questions/coding.yaml` — 50 Python problems, 4-6 test cases each
-`questions/reasoning.yaml` — 50 math/logic/analytical word problems
+| File | Count | What's inside |
+|------|-------|---------------|
+| `questions/coding.yaml` | 50 | Python problems, 4-6 test cases each |
+| `questions/reasoning.yaml` | 50 | Math, logic, and analytical word problems |
 
-To add more, use the prompt in `prompts/question_writer.md` with any frontier model.
+Russian versions use Russian names and culturally neutral units — not machine-translated English. To add more questions, use the prompt in `prompts/question_writer.md` with any frontier model.
+
+## Models
+
+Configured in `src/lang_gap/config.py`. Currently:
+
+Claude Opus 4.6 / Claude Sonnet 4.6 / GPT-5.2 / GPT-4.1 / Gemini 2.5 Pro / DeepSeek R1
+
+Any model available on [OpenRouter](https://openrouter.ai) works — just add it to the `MODELS` dict.
+
+## Output
+
+Each run produces:
+
+- **`results/<run-id>.json`** — raw evaluation data (gitignored)
+- **`reports/<run-id>.md`** — markdown tables per category + overall, plus a list of specific questions where EN passed but RU failed
+
+## License
+
+[Apache 2.0](LICENSE)
