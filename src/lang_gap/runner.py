@@ -181,10 +181,9 @@ async def run(
             console.print(f"  • {q.id} ({q.category}, {q.difficulty})")
         return None
 
-    client = OpenRouterClient()
     results: list[EvalResult] = []
 
-    try:
+    async with OpenRouterClient() as client:
         with Progress(console=console) as progress:
             task: TaskID = progress.add_task("Evaluating...", total=total_calls)
 
@@ -201,8 +200,6 @@ async def run(
                 result = await coro_task
                 results.append(result)
                 progress.advance(task)
-    finally:
-        await client.close()
 
     run_id = uuid4().hex[:12]
     run_results = RunResults(
