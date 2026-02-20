@@ -1,7 +1,5 @@
 """Extract code blocks and answers from raw LLM responses."""
 
-from __future__ import annotations
-
 import re
 
 

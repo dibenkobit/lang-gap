@@ -1,7 +1,5 @@
 """Generate comparison tables for terminal and markdown output."""
 
-from __future__ import annotations
-
 from collections import defaultdict
 from dataclasses import dataclass
 from pathlib import Path

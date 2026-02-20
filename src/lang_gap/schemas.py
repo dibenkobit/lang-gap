@@ -1,8 +1,6 @@
 """Pydantic models for questions, evaluation results, and reports."""
 
-from __future__ import annotations
-
-from typing import Literal, Union
+from typing import Literal
 
 from pydantic import BaseModel
 
@@ -34,7 +32,7 @@ class ReasoningQuestion(BaseModel):
     tolerance: float | None = None
 
 
-Question = Union[CodingQuestion, ReasoningQuestion]
+Question = CodingQuestion | ReasoningQuestion
 
 
 class EvalResult(BaseModel):

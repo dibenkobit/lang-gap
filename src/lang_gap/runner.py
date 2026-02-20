@@ -1,7 +1,5 @@
 """Orchestrator: load questions → call models → evaluate → save results."""
 
-from __future__ import annotations
-
 import asyncio
 import json
 from datetime import datetime, timezone

@@ -1,11 +1,10 @@
 """Async OpenRouter client with rate limiting and retries."""
 
-from __future__ import annotations
-
 import asyncio
 import time
 from collections import defaultdict
 from dataclasses import dataclass
+from typing import Self
 
 import httpx
 
@@ -106,7 +105,7 @@ class OpenRouterClient:
         if self._client and not self._client.is_closed:
             await self._client.aclose()
 
-    async def __aenter__(self) -> OpenRouterClient:
+    async def __aenter__(self) -> Self:
         return self
 
     async def __aexit__(self, *exc: object) -> None:

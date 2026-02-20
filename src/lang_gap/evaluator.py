@@ -1,7 +1,5 @@
 """Execute extracted code and check answers."""
 
-from __future__ import annotations
-
 import math
 import subprocess
 import sys
