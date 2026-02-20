@@ -29,6 +29,7 @@ def evaluate_coding(code: str, question: CodingQuestion) -> tuple[bool, str | No
             capture_output=True,
             text=True,
             timeout=10,
+            env={},
         )
     except subprocess.TimeoutExpired:
         return False, "Execution timed out (10s)"
