@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import math
 import subprocess
+import sys
 import tempfile
 import textwrap
 from pathlib import Path
@@ -26,7 +27,7 @@ def evaluate_coding(code: str, question: CodingQuestion) -> tuple[bool, str | No
 
     try:
         result = subprocess.run(
-            ["python", str(tmp_path)],
+            [sys.executable, str(tmp_path)],
             capture_output=True,
             text=True,
             timeout=10,
