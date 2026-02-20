@@ -37,7 +37,7 @@ class TestBuildPrompt:
             category="coding",
             difficulty="easy",
             prompt_en="Count odd-length words.",
-            prompt_ru="Подсчитайте слова с нечётной длиной.",
+            prompt_ru="Подсчитайте слова с нечётной длиной.",  # noqa: RUF001
             function_name="count_odd",
             function_signature="def count_odd(s: str) -> int",
             test_cases=[],

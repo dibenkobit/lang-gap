@@ -1,8 +1,7 @@
 """Orchestrator: load questions → call models → evaluate → save results."""
 
 import asyncio
-import json
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from uuid import uuid4
 
@@ -202,7 +201,7 @@ async def run(
     run_id = uuid4().hex[:12]
     run_results = RunResults(
         run_id=run_id,
-        timestamp=datetime.now(timezone.utc).isoformat(),
+        timestamp=datetime.now(UTC).isoformat(),
         models=list(selected_models.keys()),
         results=results,
     )
