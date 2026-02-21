@@ -1,4 +1,4 @@
-"""CLI entry point: python -m lang_gap"""
+"""CLI entry point for lang-gap."""
 
 import argparse
 import asyncio

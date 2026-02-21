@@ -20,11 +20,11 @@ DeepSeek R1         86%       83%       −3%
 Requires **Python 3.11+** and [uv](https://docs.astral.sh/uv/).
 
 ```bash
-cp .env.example .env          # add your OpenRouter API key
+cp .env.example .env                           # add your OpenRouter API key
 uv sync
-python -m lang_gap --dry-run  # validate setup, no API calls
-python -m lang_gap --models gpt-4.1 --limit 5  # test run (~$0.50)
-python -m lang_gap            # full run, all models (~$25-35)
+uv run lang-gap --dry-run                      # validate setup, no API calls
+uv run lang-gap --models gpt-4.1 --limit 5    # test run (~$0.50)
+uv run lang-gap                                # full run, all models (~$25-35)
 ```
 
 ## How it works
@@ -68,10 +68,10 @@ Each run produces:
 
 ```bash
 uv sync --group dev
-pytest                  # fast tests only
-pytest -m slow          # slow tests (10s subprocess timeouts)
-ruff check src tests
-mypy src
+uv run pytest                  # fast tests only
+uv run pytest -m slow          # slow tests (10s subprocess timeouts)
+uv run ruff check src tests
+uv run mypy src
 ```
 
 ## License
