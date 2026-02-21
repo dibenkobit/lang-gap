@@ -2,13 +2,13 @@
 
 import asyncio
 from datetime import UTC, datetime
-from pathlib import Path
 from uuid import uuid4
 
 import yaml
 from rich.console import Console
 from rich.progress import Progress, TaskID
 
+from lang_gap._paths import QUESTIONS_DIR, RESULTS_DIR
 from lang_gap.client import CompletionResponse, OpenRouterClient
 from lang_gap.config import MODELS
 from lang_gap.evaluator import evaluate_coding, evaluate_reasoning
@@ -22,9 +22,6 @@ from lang_gap.schemas import (
 )
 
 console = Console()
-
-QUESTIONS_DIR = Path(__file__).resolve().parent.parent.parent / "questions"
-RESULTS_DIR = Path(__file__).resolve().parent.parent.parent / "results"
 
 
 # ── Question loading ─────────────────────────────────────────────────

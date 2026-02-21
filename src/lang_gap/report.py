@@ -3,16 +3,15 @@
 from collections import defaultdict
 from collections.abc import Callable
 from dataclasses import dataclass
-from pathlib import Path
 
 from rich.console import Console
 from rich.table import Table
 from rich.text import Text
 
+from lang_gap._paths import REPORTS_DIR
 from lang_gap.schemas import EvalResult, RunResults
 
 console = Console()
-REPORTS_DIR = Path(__file__).resolve().parent.parent.parent / "reports"
 
 _PREFIX = {"coding": "code_", "reasoning": "reason_"}
 
